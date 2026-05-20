@@ -1,0 +1,39 @@
+# Polymarket Autonomous Agent — Config
+
+# ── Capital & Risk ───────────────────────────────────────────
+paper_capital: 10000           # Starting bankroll (paper)
+max_capital_per_trade: 300     # Max $ per bet
+kelly_fraction: 0.25           # 1/4 Kelly (conservative)
+max_open_positions: 5
+scan_limit: 20                 # Top N markets to analyze each cycle
+min_volume: 50000              # Minimum $ volume to consider
+
+# ── LLM Analysis ────────────────────────────────────────────
+# Set via env var: export OPENAI_API_KEY="sk-..."
+# Or paste here (redact before committing):
+openai_api_key: ""  # Set via env var: export OPENAI_API_KEY="sk-..."
+openai_base_url: "https://api.freemodel.dev/v1"
+llm_model: "gpt-5o"           # Model string for trade reasoning
+
+# ── Mode ────────────────────────────────────────────────────
+#  paper  — no real trades, SQLite ledger only.
+#  live   — real trades via wallet signing.
+mode: paper
+
+# ── Wallet / Live Trading ────────────────────────────────────
+# ONLY needed when mode: live
+wallet_private_key: ""          # DO NOT COMMIT THIS TO GIT
+wallet_address: ""              # Your wallet address (Polymarket CLOB-linked)
+chain: polygon                  # polygon | base
+rpc_url: ""                     # Optional: custom RPC (defaults to public)
+# USDC on Polygon = 0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174
+# USDC on Base    = 0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913
+
+# ── Telegram Alerts ──────────────────────────────────────────
+telegram:
+  bot_token: ""                 # @BotFather → /newbot
+  chat_id: ""                   # @getidsbot or /start @your_bot
+
+# ── API / Dashboard ───────────────────────────────────────────
+api_port: 8011
+api_host: "0.0.0.0"             # Set to 127.0.0.1 to restrict external access

@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Polymarket Agent</title>
+<style>
+:root{--bg:#08080e;--surface:#111119;--border:#1e1e38;--accent:#6366f1;--accent2:#22d3a8;--red:#ef4444;--green:#10b981;--text:#e2e8f0;--muted:#4b5563;--r:10px;--f:'SF Mono','Cascadia Code',monospace}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:var(--f);font-size:14px}
+.app{min-height:100vh}
+.hdr{display:flex;align-items:center;justify-content:space-between;background:var(--surface);border-bottom:1px solid var(--border);padding:12px 24px;position:sticky;top:0;z-index:100}
+.hdr-left{display:flex;gap:10px;align-items:center}.logo{color:var(--accent);font-size:1.5em}
+.badge{font-size:.65em;padding:2px 8px;border-radius:99px;background:var(--border);color:var(--muted);margin-left:6px}
+.badge.live{color:var(--green)}.badge.ok{color:var(--accent2)}
+.tabs{display:flex;gap:2px;background:var(--bg);border-bottom:1px solid var(--border);padding:8px 20px 0}
+.tab{background:0 0;border:0;color:var(--muted);padding:8px 14px;cursor:pointer;font-size:.72em;letter-spacing:.04em;border-bottom:2px solid transparent;font-family:var(--f);text-transform:uppercase}
+.tab:hover{color:var(--text)}.tab.active{color:var(--accent);border-bottom-color:var(--accent)}
+.view{padding:24px}.view h2{margin:0 0 20px;font-size:1.2em}
+.row{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px}
+.row-acts{display:flex;gap:10px;align-items:center}
+.metrics{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin-bottom:24px}
+.mc{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:16px 20px}
+.ml{font-size:.68em;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);margin-bottom:6px}
+.mv{font-size:1.8em;font-weight:700}
+.panel{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:20px;margin-bottom:20px}
+.panel h3{margin:0 0 14px;color:var(--accent);font-size:.9em}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.btn{background:var(--surface);color:var(--text);border:1px solid var(--border);padding:8px 16px;border-radius:8px;cursor:pointer;font-size:.78em}
+.btn:hover{border-color:var(--accent)}.btn-sm{background:var(--surface);color:var(--text);border:1px solid var(--border);padding:6px 14px;border-radius:8px;cursor:pointer;font-size:.75em}
+.btn-primary{background:var(--accent);color:#fff;border:0;padding:10px 22px;border-radius:8px;cursor:pointer;font-size:.82em}
+.btn-primary:hover{opacity:.85}.btn-primary:disabled{opacity:.35}
+table{width:100%;border-collapse:collapse;font-size:.78em}
+th{text-align:left;color:var(--muted);font-weight:500;border-bottom:1px solid var(--border);padding:8px 10px}
+td{border-bottom:1px solid var(--border);padding:7px 10px}.muted{color:var(--muted)}
+.tag{display:inline-block;padding:2px 9px;border-radius:99px;font-size:.68em;font-weight:700;text-transform:uppercase}
+.tag.g{background:rgba(16,185,129,.15);color:var(--green)}.tag.r{background:rgba(239,68,68,.15);color:var(--red)}.tag.s{padding:1px 6px}
+.log{background:var(--bg);border-radius:8px;padding:12px;overflow-y:auto;max-height:350px;font-size:.68em;line-height:1.5;white-space:pre-wrap;word-break:break-all}
+.search{background:var(--surface);color:var(--text);border:1px solid var(--border);border-radius:8px;padding:8px 14px;font-size:.82em;min-width:260px}
+select,input{background:var(--bg);color:var(--text);border:1px solid var(--border);border-radius:7px;padding:9px 12px;font-size:.82em;font-family:var(--f)}
+.trade-form{display:flex;gap:12px;align-items:flex-end;flex-wrap:wrap;background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:20px}
+.trade-form label{display:flex;flex-direction:column;gap:5px;font-size:.75em;color:var(--muted)}
+.result-card{background:var(--bg);border:1px solid var(--border);border-radius:var(--r);padding:18px;margin-top:14px;font-size:.85em;line-height:1.7}
+.result-card.err{border-color:rgba(239,68,68,.4)}.result-card.ok{border-color:rgba(16,185,129,.3)}
+.err-text{color:var(--red)}.dec-row{display:flex;gap:10px;align-items:center;margin-bottom:6px}
+.code-block{background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:14px;font-size:.78em;color:var(--accent2);white-space:pre-wrap;margin:10px 0}
+.info-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:20px 24px;margin-bottom:20px}
+.kv{display:flex;gap:10px;align-items:center;margin-bottom:6px;font-size:.82em}
+.settings-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.field{display:flex;flex-direction:column;gap:4px;margin-bottom:12px}
+.field label{font-size:.72em;color:var(--muted);text-transform:uppercase;letter-spacing:.04em}
+</style>
+</head>
+<body>
+<div class="app">
+  <header class="hdr">
+    <div class="hdr-left">
+      <span class="logo">&#9670;</span>
+      <span><b>Polymarket Agent</b>
+        <span class="badge">v2.0</span>
+        <span class="badge" id="mode-badge">PAPER</span>
+        <span class="badge" id="tg-badge">&#9675;TG</span>
+      </span>
+    </div>
+    <button class="btn-sm" onclick="refreshAll()">&#8635; Refresh</button>
+  </header>
+  <nav class="tabs" id="tabs"></nav>
+  <div id="app" class="view"></div>
+</div>
+<script>
+const API='/api';
+const TABS=['overview','positions','scan','trade','crypto','live','settings'];
+let tab='overview', portfolio={}, openPos=[], allPos=[], scan=[], settleLog=[], cryptoMarkets=[], config={}, tgConnected=false, logLines=[];
+let tradeSlug='', tradeOutcome='yes', tradeSize=100, tradeResult=null, filterQuery='';
+
+function fmtPct(v){ return v==null?'\u2014':(v*100).toFixed(1)+'%'; }
+function pnlC(n){ return typeof n==='number'?(n>=0?'var(--green)':'var(--red)'):'var(--muted)'; }
+function esc(s){ const d=document.createElement('div'); d.textContent=s||''; return d.innerHTML; }
+
+async function refreshAll(){
+  try{
+    const [p,op,ap,sl,lsl,cfg,tg,cr]=await Promise.all([
+      fetch(API+'/portfolio').then(r=>r.json()),
+      fetch(API+'/positions/open').then(r=>r.json()).then(r=>r.positions),
+      fetch(API+'/positions?limit=200').then(r=>r.json()).then(r=>r.positions),
+      fetch(API+'/log/settlement?n=50').then(r=>r.json()).then(r=>r.lines),
+      fetch(API+'/log/agent?n=50').then(r=>r.json()).then(r=>r.lines),
+      fetch(API+'/config').then(r=>r.json()),
+      fetch(API+'/integrations/telegram').then(r=>r.json()),
+      fetch(API+'/stats/crypto').then(r=>r.json()).then(r=>r.markets),
+    ]);
+    portfolio=p||{}; openPos=op||[]; allPos=ap||[]; settleLog=sl||[];
+    logLines=lsl||[]; config=cfg||{}; tgConnected=tg?.configured; cryptoMarkets=cr||[];
+    document.getElementById('mode-badge').textContent=(cfg.mode==='live'?'&#9679;LIVE':'&#9675;PAPER');
+    document.getElementById('mode-badge').className='badge'+(cfg.mode==='live'?' live':'');
+    document.getElementById('tg-badge').textContent=tgConnected?'&#9679;TG':'&#9675;TG';
+    document.getElementById('tg-badge').className='badge'+(tgConnected?' ok':'');
+  }catch(e){console.error(e)}
+}
+
+async function doScan(){
+  try{
+    const r=await fetch(API+'/scan?limit=50').then(r=>r.json());
+    scan=r.candidates||[];
+  }catch(e){console.error(e)}
+  render();
+}
+
+async function doAnalyze(){
+  if(!tradeSlug.trim()) return;
+  tradeResult='LOADING\u2026'; render();
+  try{
+    const r=await fetch(API+'/trade/analyze',{
+      method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({market_data:{slug:tradeSlug}})
+    }).then(r=>r.json());
+    tradeResult=r;
+  }catch(e){tradeResult={error:String(e)}}
+  render();
+}
+
+async function settleNow(){ await fetch(API+'/settle',{method:'POST'}); refreshAll(); }
+async function saveSettings(){ await fetch(API+'/config',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(config)}); refreshAll(); }
+
+function render(){
+  const t=tab; const app=document.getElementById('app');
+  if(t==='overview') renderOverview();
+  else if(t==='positions') renderPositions();
+  else if(t==='scan') renderScan();
+  else if(t==='trade') renderTrade();
+  else if(t==='crypto') renderCrypto();
+  else if(t==='live') renderLive();
+  else if(t==='settings') renderSettings();
+}
+
+function renderTabs(){
+  const nav=document.getElementById('tabs');
+  nav.innerHTML=TABS.map(t=>`<button class="tab${tab===t?' active':''}" onclick="switchTab('${t}')">${t.toUpperCase()}</button>`).join('');
+}
+function switchTab(t){ tab=t; renderTabs(); render(); }
+
+/* ── OVERVIEW ── */
+function renderOverview(){
+  const p=portfolio;
+  document.getElementById('app').innerHTML=`
+<div class="metrics">
+  <div class="mc"><div class="ml">Realized P&amp;L</div><div class="mv" style="color:${pnlC(p.realized_pnl)}">$${(p.realized_pnl||0).toLocaleString(undefined,{minimumFractionDigits:2,maximumFractionDigits:2})}</div></div>
+  <div class="mc"><div class="ml">Unrealized P&amp;L</div><div class="mv" style="color:${pnlC(p.unrealized_pnl)}">$${(p.unrealized_pnl||0).toLocaleString(undefined,{minimumFractionDigits:2,maximumFractionDigits:2})}</div></div>
+  <div class="mc"><div class="ml">Open Positions</div><div class="mv">${p.open_positions??0} / ${p.total_positions??0}</div></div>
+  <div class="mc"><div class="ml">Win Rate</div><div class="mv">${(p.win_rate??0).toFixed(1)}%</div></div>
+  <div class="mc"><div class="ml">Total Return</div><div class="mv" style="color:${pnlC(p.total_pct_return/100)}">${(p.total_pct_return??0).toFixed(2)}%</div></div>
+  <div class="mc"><div class="ml">Candidates</div><div class="mv">${scan.length}</div></div>
+</div>
+<div class="grid-2">
+  <div class="panel">
+    <h3>&#128202; Open Positions</h3>
+    ${openPos.length===0?'<p class="muted">No open positions.</p>':`
+    <table><thead><tr><th>#</th><th>Side</th><th>Entry%</th><th>Size$</th><th>Conf</th><th>Question</th></tr></thead>
+    <tbody>${openPos.map(p=>`<tr><td>#${p.id}</td><td><span class="tag${p.outcome==='yes'?' g':' r'}">${esc(p.outcome?.toUpperCase())}</span></td><td>${fmtPct(p.entry_price)}</td><td>$${p.size_usdc?.toFixed(2)}</td><td>${(p.confidence*100).toFixed(0)}%</td><td title="${esc(p.market_question)}">${esc(p.market_question?.slice(0,45))}&#8230;</td></tr>`).join('')}</tbody></table>`}
+  </div>
+  <div class="panel">
+    <h3>&#128203; Agent Log</h3>
+    <pre class="log">${esc(logLines.join('\n'))}</pre>
+  </div>
+</div>
+<div class="grid-2">
+  <div class="panel">
+    <h3>&#9878; Settlement Log</h3>
+    <pre class="log">${esc(settleLog.join('\n'))}</pre>
+    <button class="btn" onclick="settleNow()">&#9654; Settle All</button>
+  </div>
+  <div class="panel">
+    <h3>&#127942; Leaderboard</h3>
+    <table><thead><tr><th>Question</th><th>Type</th><th>P&amp;L$</th></tr></thead>
+    <tbody>${(allPos||[]).slice(0,20).map(p=>`<tr><td title="${esc(p.market_question)}">${esc(p.market_question?.slice(0,50))}&#8230;</td><td>${(p.mm_type||'?').toUpperCase()}</td><td style="color:${pnlC(p.pnl_realized)}">$${p.pnl_realized?.toFixed(2)??'0.00'}</td></tr>`).join('')}</tbody></table>
+  </div>
+</div>`;
+}
+
+/* ── POSITIONS ── */
+function renderPositions(){
+  document.getElementById('app').innerHTML=`
+<h2>&#128218; All Positions (${allPos.length})</h2>
+<table><thead><tr><th>#</th><th>Type</th><th>Status</th><th>Outcome</th><th>Entry%</th><th>Size$</th><th>Conf</th><th>P&amp;L$</th><th>Opened</th><th>Question</th></tr></thead>
+<tbody>${allPos.map(p=>`<tr><td>#${p.id}</td><td>${(p.mm_type||'?').toUpperCase()}</td><td><span class="tag s">${p.status??'open'}</span></td>
+<td><span class="tag${p.outcome==='yes'?' g':' r'}">${esc(p.outcome?.toUpperCase())}</span></td><td>${fmtPct(p.entry_price)}</td><td>$${p.size_usdc?.toFixed(2)}</td>
+<td>${(p.confidence*100).toFixed(0)}%</td><td style="color:${pnlC(p.pnl_realized)}">$${p.pnl_realized?.toFixed(2)??'0.00'}</td>
+<td class="muted">${(p.opened_at||'').slice(0,10)}</td><td>${esc(p.market_question?.slice(0,60))}</td></tr>`).join('')}
+</tbody></table>`;
+}
+
+/* ── SCAN ── */
+function renderScan(){
+  const q=filterQuery.toLowerCase();
+  const filtered=scan.filter(m=>(m.question||'').toLowerCase().includes(q));
+  document.getElementById('app').innerHTML=`
+<div class="row"><h2>&#128269; Market Scan (${scan.length})</h2>
+<div class="row-acts"><input class="search" type="text" placeholder="Filter&#8230;" value="${esc(filterQuery)}" oninput="filterQuery=this.value;render()"/>
+<button class="btn-primary" onclick="doScan()">&#128269; Rescan</button></div></div>
+<div style="margin:10px 0">
+  <span class="badge">${scan.length} total</span>
+  <span class="badge">${scan.filter(m=>m.type==='crypto').length} crypto</span>
+  <span class="badge">${scan.filter(m=>m.type==='sports').length} sports</span>
+</div>
+<table><thead><tr><th>Type</th><th>Question</th><th>Yes%</th><th>No%</th><th>Volume$</th><th>Ends</th></tr></thead>
+<tbody>${filtered.map(m=>`<tr><td><span class="tag s${m.type==='crypto'?' g':''}">${(m.type||'?').toUpperCase()}</span></td>
+<td>${esc(m.question)}</td><td>${fmtPct(m.yes_price)}</td><td>${fmtPct(m.no_price)}</td>
+<td>$${(m.volume||0).toLocaleString()}</td><td class="muted">${(m.end_date||'').slice(0,10)}</td></tr>`).join('')}</tbody></table>`;
+}
+
+/* ── TRADE ── */
+function renderTrade(){
+  document.getElementById('app').innerHTML=`
+<h2>&#128176; Trade Analyzer</h2><p class="muted">Run full LLM analysis + Kelly sizing for any market.</p>
+<div class="trade-form">
+  <label>Market Slug<input type="text" value="${esc(tradeSlug)}" onchange="tradeSlug=this.value" placeholder="will-bitcoin-hit-150k-by-june-2026"/></label>
+  <label>Outcome<select onchange="tradeOutcome=this.value"><option value="yes"${tradeOutcome==='yes'?' selected':''}>YES</option><option value="no"${tradeOutcome==='no'?' selected':''}>NO</option></select></label>
+  <label>Size ($)<input type="number" value="${tradeSize}" onchange="tradeSize=+this.value||100" min="1"/></label>
+  <button class="btn-primary" onclick="doAnalyze()">&#9654; Analyze &amp; Execute</button>
+</div>
+${tradeResult?`<div class="result-card${tradeResult.error?' err':' ok'}">
+  ${tradeResult.error?`<p class="err-text">&#10060; ${esc(tradeResult.error)}</p>`:`
+  <div class="dec-row"><b>Action:</b>
+    <span class="tag${tradeResult.decision?.action==='BUY'?' g':tradeResult.decision?.action==='PASS'?' r':''}">${ tradeResult.decision?.action }</span>
+  </div>
+  <p><b>Confidence:</b> ${fmtPct(tradeResult.decision?.confidence)}</p>
+  <p><b>Market Price (Yes):</b> ${fmtPct(tradeResult.decision?.market_price)}</p>
+  <p><b>Edge:</b> ${fmtPct(tradeResult.decision?.edge)}</p>
+  <p><b>Risk:</b> ${tradeResult.decision?.risk}</p>
+  <p><b>Suggested Size:</b> $${tradeResult.decision?.position_size_usdc?.toFixed(2)}</p>
+  <p><b>Rationale:</b> ${esc(tradeResult.decision?.rationale)}</p>`}
+</div>`:''}`;
+}
+
+/* ── CRYPTO ── */
+function renderCrypto(){
+  document.getElementById('app').innerHTML=`
+<div class="row"><h2>&#8383; Crypto Markets</h2><button class="btn-sm" onclick="refreshAll()">&#8635; Refresh</button></div>
+<table><thead><tr><th>#</th><th>Question</th><th>Yes%</th><th>No%</th><th>Volume$</th></tr></thead>
+<tbody>${cryptoMarkets.map((m,i)=>`<tr><td class="muted">${i+1}</td><td>${esc(m.q)}</td><td>${fmtPct(m.yes)}</td><td>${fmtPct(1-(m.yes||0))}</td><td>$${m.vol?.toLocaleString()}</td></tr>`).join('')}</tbody></table>`;
+}
+
+/* ── LIVE ── */
+function renderLive(){
+  const live=config.mode==='live';
+  document.getElementById('app').innerHTML=`
+<h2>&#128279; Live Mode &amp; Wallet</h2>
+<div class="info-card${live?' live':''}">
+  ${live?'<p class="live-tag">&#9679; LIVE MODE</p>':'<p class="muted">&#128196; Paper Mode — no real funds at risk.</p>'}
+  ${live?`<div class="kv"><span>Chain</span><b>${(config.chain||'polygon').toUpperCase()}</b></div>
+  <div class="kv"><span>Address</span><code>${config.wallet_address||'not set'}</code></div>
+  <div class="kv"><span>USDC Balance</span><b>$${(portfolio.wallet_balance||0).toLocaleString(undefined,{minimumFractionDigits:2,maximumFractionDigits:2})}</b></div>`:`
+  <p>To enable live trading, set in <code>config.yaml</code>:</p>
+  <pre class="code-block">wallet_private_key: "0xYOUR_KEY"
+wallet_address: "0xYOUR_ADDRESS"
+mode: "live"
+chain: "polygon"</pre>
+  <p>Then restart <code>api_server.py</code>.</p>`}
+</div>
+<div class="panel"><h3>Live Position Monitor</h3>
+<table><thead><tr><th>#</th><th>Question</th><th>Outcome</th><th>Entry%</th><th>Size$</th><th>Value$</th><th>P&amp;L$</th></tr></thead>
+<tbody>${openPos.map(p=>`<tr><td>#${p.id}</td><td>${esc(p.market_question?.slice(0,55))}</td><td><span class="tag s${p.outcome==='yes'?' g':' r'}">${p.outcome?.toUpperCase()}</span></td><td>${fmtPct(p.entry_price)}</td><td>$${p.size_usdc?.toFixed(2)}</td><td class="muted">\u2014</td><td class="muted">\u2014</td></tr>`).join('')}
+</tbody></table><p class="muted">Real-time P&amp;L feed coming after live executor integration.</p></div>`;
+}
+
+/* ── SETTINGS ── */
+function renderSettings(){
+  document.getElementById('app').innerHTML=`
+<div class="row"><h2>&#9881; Settings</h2><button class="btn-primary" onclick="saveSettings()">&#128190; Save All</button></div>
+<div class="settings-grid">
+  <div class="panel">
+    <h3>Agent Parameters</h3>
+    <div class="field"><label>Paper Capital ($)</label><input type="number" value="${config.paper_capital||''}" onchange="config.paper_capital=+this.value"/></div>
+    <div class="field"><label>Max Per Trade ($)</label><input type="number" value="${config.max_capital_per_trade||''}" onchange="config.max_capital_per_trade=+this.value"/></div>
+    <div class="field"><label>Kelly Fraction</label><input type="number" value="${config.kelly_fraction||''}" min="0" max="1" step="0.05" onchange="config.kelly_fraction=+this.value"/></div>
+    <div class="field"><label>Max Open Positions</label><input type="number" value="${config.max_open_positions||''}" onchange="config.max_open_positions=+this.value"/></div>
+    <div class="field"><label>Scan Limit</label><input type="number" value="${config.scan_limit||''}" min="5" max="200" onchange="config.scan_limit=+this.value"/></div>
+    <div class="field"><label>Mode</label><select onchange="config.mode=this.value"><option value="paper"${config.mode==='paper'?' selected':''}>PAPER</option><option value="live"${config.mode==='live'?' selected':''}>LIVE</option></select></div>
+    <div class="field"><label>Min Volume ($)</label><input type="number" value="${config.min_volume||''}" onchange="config.min_volume=+this.value"/></div>
+  </div>
+  <div class="panel">
+    <h3>Wallet &amp; Chain</h3>
+    <div class="field"><label>Chain</label><select onchange="config.chain=this.value"><option${config.chain==='polygon'?' selected':''}>polygon</option><option${config.chain==='base'?' selected':''}>base</option></select></div>
+    <div class="field"><label>Wallet Address</label><input type="text" value="${config.wallet_address||''}" placeholder="0x..." onchange="config.wallet_address=this.value"/></div>
+    <div class="field"><label style="color:var(--red)">Private Key</label><input type="password" value="${config.wallet_private_key||''}" placeholder="0x..." onchange="config.wallet_private_key=this.value"/></div>
+    <p class="muted">&#128274; Private key never leaves this machine.</p>
+  </div>
+  <div class="panel">
+    <h3>Telegram Alerts</h3>
+    <p class="muted">Create bot: <code>@BotFather /newbot</code></p>
+    <div class="field"><label>Bot Token</label><input type="text" value="${config.telegram?.bot_token||''}" placeholder="123456789:ABC..." onchange="config.telegram=config.telegram||{};config.telegram.bot_token=this.value"/></div>
+    <div class="field"><label>Chat ID</label><input type="text" value="${config.telegram?.chat_id||''}" placeholder="-100..." onchange="config.telegram=config.telegram||{};config.telegram.chat_id=this.value"/></div>
+    <p class="muted">Configured: ${tgConnected?'&#9989; yes':'&#10060; no'}</p>
+  </div>
+  <div class="panel">
+    <h3>API Server</h3>
+    <div class="field"><label>Port</label><input type="number" value="${config.api_port||''}" onchange="config.api_port=+this.value"/></div>
+    <div class="field"><label>LLM Model</label><input type="text" value="${config.llm_model||''}" onchange="config.llm_model=this.value"/></div>
+    <div class="field"><label>OpenAI Key</label><input type="password" value="${config.openai_api_key||''}" placeholder="sk-..." onchange="config.openai_api_key=this.value"/></div>
+  </div>
+</div>`;
+}
+
+/* init */
+renderTabs();
+refreshAll();
+doScan();
+setInterval(refreshAll,30000);
+</script>
+</body></html>

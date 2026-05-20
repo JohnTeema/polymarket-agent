@@ -1,0 +1,13 @@
+{"ts": "2026-05-18T00:02:19.913343", "msg": "Scanning crypto markets..."}
+{"ts": "2026-05-18T00:02:20.782890", "msg": "Scanning sports markets..."}
+{"ts": "2026-05-18T00:02:21.526909", "msg": "Found 0 candidate markets (min vol $50K)"}
+{"ts": "2026-05-18T00:04:15.277184", "msg": "Scanning crypto markets..."}
+{"ts": "2026-05-18T00:04:17.495365", "msg": "Scanning sports markets..."}
+{"ts": "2026-05-18T00:04:21.447708", "msg": "Found 320 candidate markets (min vol $50K)"}
+{"ts": "2026-05-18T00:05:48.628429", "msg": "Scanning crypto markets..."}
+{"ts": "2026-05-18T00:05:52.618776", "msg": "Scanning sports markets..."}
+{"ts": "2026-05-18T00:05:55.051380", "msg": "Found 88 candidate markets (min vol $50K)"}
+{"ts": "2026-05-18T00:06:58.674162", "msg": "Scanning active events..."}
+{"ts": "2026-05-18T00:07:01.560879", "msg": "Found 272 candidate markets (min vol $50K)"}
+{"ts": "2026-05-18T00:07:37.462326", "msg": "Scanning active events..."}
+{"ts": "2026-05-18T00:07:42.018804", "msg": "Found 255 candidate markets (min vol $50K)"}
