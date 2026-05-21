@@ -11,9 +11,9 @@ min_volume: 50000              # Minimum $ volume to consider
 # ── LLM Analysis ────────────────────────────────────────────
 # Set via env var: export OPENAI_API_KEY="sk-..."
 # Or paste here (redact before committing):
-openai_api_key: ""  # Set via env var: export OPENAI_API_KEY="sk-..."
-openai_base_url: "https://api.freemodel.dev/v1"
-llm_model: "gpt-5o"           # Model string for trade reasoning
+openai_api_key: ""  # Set via env var: export OPENAI_API_KEY="sk-..." or export GROQ_API_KEY="gsk_..."
+openai_base_url: "https://api.groq.com/openai/v1"
+llm_model: "llama-3.3-70b-versatile"           # Model string for trade reasoning
 
 # ── Mode ────────────────────────────────────────────────────
 #  paper  — no real trades, SQLite ledger only.

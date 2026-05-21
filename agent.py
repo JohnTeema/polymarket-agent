@@ -15,7 +15,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
 
-from engine.brain import run_full_cycle, run_scan_only, get_all_positions, get_summary, get_open_positions, log
+from engine.brain import run_full_cycle, run_scan_only, check_exit_opportunities, get_all_positions, get_summary, get_open_positions, log
 
 
 def show_status():
@@ -80,7 +80,7 @@ def print_status():
 if __name__ == "__main__":
     print_banner()
     if len(sys.argv) < 2:
-        print("Usage: python3 agent.py [scan|run|status|positions]")
+        print("Usage: python3 agent.py [scan|run|exit|status|positions]")
         sys.exit(0)
 
     cmd = sys.argv[1].lower()
@@ -90,10 +90,13 @@ if __name__ == "__main__":
     elif cmd == "run":
         run_full_cycle(scan_only=False)
         print_status()
+    elif cmd == "exit":
+        print("EXIT CHECK — scanning open positions for profit targets / stop losses\n")
+        check_exit_opportunities()
     elif cmd == "status":
         show_status()
     elif cmd == "positions":
         show_positions()
     else:
         print(f"Unknown command: {cmd}")
-        print("Usage: agent.py [scan|run|status|positions]")
+        print("Usage: agent.py [scan|run|exit|status|positions]")

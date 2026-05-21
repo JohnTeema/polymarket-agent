@@ -2,6 +2,7 @@
 Agent orchestrator — main loop.
 1. Scan markets → 2. Analyze → 3. Decide → 4. Execute (paper) → 5. Await settlement
 """
+import re
 import sys
 import os
 import json as _json
@@ -11,9 +12,10 @@ from engine.ledger import (
     open_position, close_position, settle_position, get_open_positions, get_summary, get_all_positions
 )
 from engine.polymarket_client import (
-    get_active_events, format_market
+    get_active_events, get_daily_crypto_markets, format_market,
+    get_orderbook, get_price_history,
 )
-from engine.strategies import make_trading_decision, load_config, save_config, filter_candidate_markets
+from engine.strategies import make_trading_decision, load_config, filter_candidate_markets
 
 
 AGENT_LOG = Path(__file__).parent.parent / "data" / "agent_log.jsonl"
@@ -36,6 +38,55 @@ def log(msg: str):
     print(f"[{ts[:19]}] {msg}")
 
 
+PROFIT_TARGET = 0.15   # close if price is 15% above entry
+STOP_LOSS     = 0.20   # close if price is 20% below entry
+
+
+def _get_current_price(pos: dict) -> float | None:
+    """Fetch current price for a position's token via orderbook, with price-history fallback."""
+    try:
+        ob = get_orderbook(pos["token_id"])
+        bids = ob.get("bids", [])
+        if bids:
+            return float(bids[0]["price"])
+    except Exception:
+        pass
+    try:
+        history = get_price_history(pos["condition_id"], interval="1m", fidelity=1)
+        if history:
+            p = float(history[-1]["p"])
+            return p if pos["outcome"] == "yes" else 1 - p
+    except Exception:
+        pass
+    return None
+
+
+def check_exit_opportunities():
+    """Check all open positions for profit target or stop-loss triggers and close if hit."""
+    open_pos = get_open_positions()
+    if not open_pos:
+        return
+    log(f"Checking exit opportunities for {len(open_pos)} open position(s)...")
+    for pos in open_pos:
+        current = _get_current_price(pos)
+        if current is None:
+            log(f"  [EXIT CHECK] #{pos['id']} — could not fetch price, skipping")
+            continue
+        entry = pos["entry_price"]
+        pct = (current - entry) / entry
+        pnl = round(pos["size_usdc"] * (current - entry) / entry, 2)
+        log(
+            f"  [EXIT CHECK] #{pos['id']} {pos['outcome'].upper()} | "
+            f"entry={entry*100:.1f}% current={current*100:.1f}% | chg={pct*100:+.1f}%"
+        )
+        if pct >= PROFIT_TARGET:
+            log(f"[EXIT] Selling position #{pos['id']} — profit target hit (+{pct*100:.1f}%)")
+            close_position(pos["id"], current, pnl, notes="profit target hit")
+        elif pct <= -STOP_LOSS:
+            log(f"[EXIT] Selling position #{pos['id']} — stop loss hit ({pct*100:.1f}%)")
+            close_position(pos["id"], current, pnl, notes="stop loss hit")
+
+
 def get_all_candidates() -> list:
     """Gather and filter crypto + sports candidates from active events."""
     log("Scanning active events...")
@@ -47,13 +98,70 @@ def get_all_candidates() -> list:
 
 def run_scan_only(verbose: bool = False):
     """Just scan and return candidates — no trades."""
-    candidates = get_all_candidates()
+    try:
+        print("[brain] trying daily crypto scan...")
+        daily_markets = get_daily_crypto_markets()
+        candidates = filter_candidate_markets(daily_markets, min_volume=50_000)
+        log(f"get_daily_crypto_markets: {len(candidates)} candidates resolving within 24h")
+    except Exception as e:
+        log(f"get_daily_crypto_markets failed ({e}), falling back to get_active_events")
+        candidates = []
+
+    if not candidates:
+        candidates = get_all_candidates()
+
     for m, mm_type in candidates:
         fm = format_market(m)
         print(f"\n  [{mm_type.upper()}] {fm['question']}")
         print(f"    Yes={fm['yes_price']*100:.1f}% No={fm['no_price']*100:.1f}% | vol=${fm['volume']:,.0f}")
     print(f"\nTotal candidates: {len(candidates)}")
     return candidates
+
+
+_NOISE_WORDS = {
+    "the", "will", "vs", "o/u", "nba", "nfl", "mlb", "nhl", "mls",
+    "spread", "over", "under", "is", "a", "an", "be", "in", "of",
+    "to", "by", "at", "or", "win", "beat", "game", "series", "match",
+}
+
+def _game_teams(question: str) -> set[str]:
+    """Extract likely team-name tokens from a market question."""
+    tokens = set()
+    for word in re.split(r'[\s:.,()\/\-]+', question):
+        w = word.strip().lower()
+        if len(w) > 2 and w not in _NOISE_WORDS and not w[0].isdigit():
+            tokens.add(w)
+    return tokens
+
+def _implied_winner(question: str, outcome: str) -> str | None:
+    """Return the team implied to win by this position, or None if indeterminate."""
+    q = question.lower()
+    if 'o/u' in q:
+        return None  # over/under markets don't imply a winner
+    vs = re.split(r'\s+vs\.?\s+', question, maxsplit=1, flags=re.IGNORECASE)
+    if len(vs) == 2:
+        team_a = vs[0].strip().lower()
+        team_b = vs[1].split()[0].rstrip(':.').lower()
+        return team_a if outcome == 'yes' else team_b
+    m = re.search(r'spread[:\s]+(\w+)', question, re.IGNORECASE)
+    if m and outcome == 'yes':
+        return m.group(1).lower()
+    return None
+
+def _conflicts_with_existing(new_q: str, new_outcome: str, open_positions: list) -> tuple[bool, int | None]:
+    """Return (True, conflicting_pos_id) if new position contradicts an existing one."""
+    new_winner = _implied_winner(new_q, new_outcome)
+    if new_winner is None:
+        return False, None
+    new_teams = _game_teams(new_q)
+    for pos in open_positions:
+        ex_q = pos.get('market_question', '')
+        if not (new_teams & _game_teams(ex_q)):
+            continue
+        ex_winner = _implied_winner(ex_q, pos.get('outcome', ''))
+        if ex_winner and ex_winner != new_winner:
+            return True, pos.get('id')
+    return False, None
 
 
 def run_single_trade(market_like: dict, mm_type: str = "crypto"):
@@ -99,6 +207,11 @@ def run_single_trade(market_like: dict, mm_type: str = "crypto"):
     fm = format_market(market_like)
     token_id = fm["yes_token"] if decision["action"] == "trade_yes" else fm["no_token"]
 
+    conflict, conflict_id = _conflicts_with_existing(fm["question"], outcome, get_open_positions())
+    if conflict:
+        log(f"[CONFLICT] Skipping — contradicts position #{conflict_id}")
+        return
+
     pos_id = open_position(
         market_id=fm["id"],
         market_question=fm["question"],
@@ -131,23 +244,34 @@ def run_full_cycle(scan_only: bool = False):
           f"{summary['open_positions']} open | "
           f"realized P&L: ${summary['realized_pnl']:+,.2f}")
 
+    check_exit_opportunities()
+
     if scan_only:
         run_scan_only(verbose=True)
         log("Scan-only mode — no trades executed.")
         return
 
-    candidates = get_all_candidates()
+    try:
+        print("[brain] trying daily crypto scan...")
+        daily_markets = get_daily_crypto_markets()
+        candidates = filter_candidate_markets(daily_markets, min_volume=50_000)
+        log(f"get_daily_crypto_markets: {len(candidates)} candidates resolving within 24h")
+    except Exception as e:
+        log(f"get_daily_crypto_markets failed ({e}), falling back to get_active_events")
+        candidates = []
+
+    if not candidates:
+        candidates = get_all_candidates()
+
     if not candidates:
         log("No candidate markets found.")
         return
 
-    # Sort by volume, take top candidates
-    candidates_sorted = sorted(candidates, key=lambda x: format_market(x[0])["volume"], reverse=True)
     cfg = load_config()
     max_to_analyze = cfg.get("scan_limit", 20)
-    to_analyze = candidates_sorted[:max_to_analyze]
+    to_analyze = candidates[:max_to_analyze]
 
-    log(f"Analyzing top {min(len(to_analyze), max_to_analyze)} markets at volume priority...")
+    log(f"Analyzing top {len(to_analyze)} markets resolving within 24h, sorted by volume...")
 
     for m, mm_type in to_analyze:
         cfg = load_config()

@@ -3,12 +3,11 @@ Trading strategies for crypto and sports markets on Polymarket.
 Uses event tags (from Gamma API) to filter, then LLM for decision.
 """
 import json
-import urllib.request
-import urllib.error
+import requests
 import os
 import yaml
+from datetime import datetime, timezone, timedelta
 from pathlib import Path
-from packaging.version import parse as _parse
 
 from engine.polymarket_client import (
     format_market, get_market, get_orderbook,
@@ -54,6 +53,83 @@ def save_config(cfg: dict):
         yaml.dump(cfg, f, default_flow_style=False)
 
 
+# ── NBA team name lookup ─────────────────────────────────────
+_NBA_TEAMS = {
+    "spurs": "San Antonio Spurs",       "thunder": "Oklahoma City Thunder",
+    "lakers": "Los Angeles Lakers",     "warriors": "Golden State Warriors",
+    "celtics": "Boston Celtics",        "heat": "Miami Heat",
+    "nuggets": "Denver Nuggets",        "timberwolves": "Minnesota Timberwolves",
+    "wolves": "Minnesota Timberwolves", "knicks": "New York Knicks",
+    "pacers": "Indiana Pacers",         "bucks": "Milwaukee Bucks",
+    "sixers": "Philadelphia 76ers",     "76ers": "Philadelphia 76ers",
+    "cavaliers": "Cleveland Cavaliers", "cavs": "Cleveland Cavaliers",
+    "magic": "Orlando Magic",           "hawks": "Atlanta Hawks",
+    "nets": "Brooklyn Nets",            "raptors": "Toronto Raptors",
+    "bulls": "Chicago Bulls",           "pistons": "Detroit Pistons",
+    "hornets": "Charlotte Hornets",     "wizards": "Washington Wizards",
+    "clippers": "Los Angeles Clippers", "suns": "Phoenix Suns",
+    "kings": "Sacramento Kings",        "jazz": "Utah Jazz",
+    "blazers": "Portland Trail Blazers","rockets": "Houston Rockets",
+    "grizzlies": "Memphis Grizzlies",   "pelicans": "New Orleans Pelicans",
+    "mavericks": "Dallas Mavericks",    "mavs": "Dallas Mavericks",
+}
+
+
+def get_live_context(question: str, mm_type: str = "sports") -> str:
+    """
+    Fetch live game data for the market if available.
+    Always returns today's date and a reminder not to invent stats.
+    """
+    today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+    lines = [f"Today's date: {today}"]
+    lines.append(
+        "INTEGRITY RULE: DO NOT invent statistics or scores. Only reference facts "
+        "you are confident about from your training data. If unsure of a specific "
+        "stat, omit it rather than guessing."
+    )
+
+    if mm_type != "sports":
+        return "\n".join(lines)
+
+    q_lower = question.lower()
+    matched = [alias for alias in _NBA_TEAMS if alias in q_lower]
+
+    if not matched:
+        return "\n".join(lines)
+
+    # Try balldontlie free API for today's live scores
+    try:
+        resp = requests.get(
+            f"https://www.balldontlie.io/api/v1/games?dates[]={today}",
+            timeout=5,
+        )
+        if resp.status_code == 200:
+            games = resp.json().get("data", [])
+            for game in games:
+                home = game["home_team"]["full_name"].lower()
+                visitor = game["visitor_team"]["full_name"].lower()
+                if any(alias in home or alias in visitor for alias in matched):
+                    status = game.get("status", "scheduled")
+                    h_score = game.get("home_team_score") or 0
+                    v_score = game.get("visitor_team_score") or 0
+                    period = game.get("period") or 0
+                    lines.append(
+                        f"LIVE SCORE: {game['visitor_team']['full_name']} {v_score} "
+                        f"@ {game['home_team']['full_name']} {h_score} "
+                        f"| Status: {status} | Period: {period}"
+                    )
+        else:
+            lines.append(f"(Live score API returned {resp.status_code})")
+    except Exception as e:
+        lines.append(f"(Live score unavailable: {e})")
+
+    lines.append(
+        "Series context: Use your training data for playoff round, series record, "
+        "home/away splits, and recent game results."
+    )
+    return "\n".join(lines)
+
+
 # ── Helpers ──────────────────────────────────────────────────
 def _fmt_pct(x: float) -> str:
     return f"{x * 100:.1f}%"
@@ -91,11 +167,14 @@ def _classify_evt(evt) -> str | None:
 # ── Market filtering ──────────────────────────────────────────
 def filter_candidate_markets(events: list[dict], min_volume: float = 50_000) -> list[tuple[dict, str]]:
     """
-    Return [(market, mm_type)] for active non-closed markets in crypto/sports
-    with volume ≥ min_volume. Uses event-level tags for classification.
+    Return [(market, mm_type)] sorted by volume descending, for active non-closed
+    markets in crypto/sports with volume ≥ min_volume that resolve within 24 hours.
     """
     candidates = []
     seen_slugs = set()
+    now = datetime.now(timezone.utc)
+    cutoff = now + timedelta(hours=24)
+
     for evt in events:
         mm_type = _classify_evt(evt)
         if mm_type is None:
@@ -109,8 +188,22 @@ def filter_candidate_markets(events: list[dict], min_volume: float = 50_000) -> 
             slug = m.get("slug", "")
             if slug in seen_slugs:
                 continue
+            fm = format_market(m)
+            end_str = fm.get("end_date") or ""
+            if not end_str:
+                continue
+            try:
+                end_dt = datetime.fromisoformat(end_str.replace("Z", "+00:00"))
+                if end_dt.tzinfo is None:
+                    end_dt = end_dt.replace(tzinfo=timezone.utc)
+            except ValueError:
+                continue
+            if end_dt > cutoff:
+                continue
             seen_slugs.add(slug)
             candidates.append((m, mm_type))
+
+    candidates.sort(key=lambda x: float(x[0].get("volume", 0) or 0), reverse=True)
     return candidates
 
 
@@ -178,6 +271,7 @@ def make_trading_decision(market: dict, mm_type: str) -> dict | None:
 
     fm = format_market(market)
     context = build_market_context(market, mm_type=mm_type)
+    live_context = get_live_context(fm["question"], mm_type=mm_type)
     type_hint = "DOMAIN: Crypto — use price levels, funding, macro, on-chain flows" \
         if mm_type == "crypto" else \
         "DOMAIN: Sports — use team form, injuries, matchups, schedule, rest"
@@ -187,49 +281,62 @@ def make_trading_decision(market: dict, mm_type: str) -> dict | None:
 
 {context}
 
+LIVE CONTEXT:
+{live_context}
+
+KNOWLEDGE RULES:
+1. You have training data on sports teams, players, season stats, and recent performance. USE it.
+   Do not say "I don't have enough information" — you have general knowledge about these matchups.
+2. For games happening today: factor in team season records, key players, home/away advantage,
+   playoff context, rest days, and scoring/defensive trends.
+3. A confidence of 0.60 is enough to trade — you do NOT need 90% certainty. Be willing to take
+   positions when you see value.
+4. Look for specific edges: is a spread too wide for a team's actual form? Is an over/under
+   ignoring a team's pace or scoring trends? Is a heavy favourite being underpriced?
+5. If the market price is 0.55 but you assign 0.65 true probability → that gap IS your edge. Trade it.
+
 TASK:
 1. Is this a tradeable opportunity with a real edge versus the crowd?
-2. If the market price is 0.55 but you assign 0.65 true probability → gap is YOUR edge.
-3. Do NOT assume you have data you don't have — if the crowd just knows something you
-   don't, PASS.
-4. Stake (confidence) should only be high when you have a structural reason to disagree
-   with the market's implied probability — not because you "feel" one way.
-5. Risk: "low" = narrow edge, high confidence | "medium" = moderate gap | "high" = high gap
+2. Use your knowledge of the teams, players, and context to form a concrete opinion.
+3. Risk: "low" = narrow edge, high confidence | "medium" = moderate gap | "high" = large gap
 
 OUTPUT FORMAT — reply ONLY with this exact JSON:
 {{"action": "trade_yes"|"trade_no"|"pass",
   "confidence": 0.0-1.0,
-  "rationale": "2–3 sentences",
+  "rationale": "2–3 sentences citing specific knowledge about the teams or matchup",
   "risk": "low"|"medium"|"high",
   "edge": 0.0-1.0}}"""
 
     # --- LLM path ---
     base_url = cfg.get("openai_base_url", "https://api.openai.com/v1").rstrip("/")
-    base_url = cfg.get("openai_base_url", "https://api.openai.com/v1").rstrip("/")
     is_openai    = api_key.startswith("sk-")
-    is_freemodel  = api_key.startswith("fe_oa_")
-    if api_key and (is_openai or is_freemodel):
-            payload = json.dumps({
-            "model": cfg.get("llm_model", "gpt-4o"),
-            "messages": [{"role": "user", "content": prompt}],
-            "temperature": 0.1,
-            "max_tokens": 350,
-        }).encode()
-        req = urllib.request.Request(
-            f"{base_url}/chat/completions",
-            data=payload,
-            headers={
-                "Authorization": f"Bearer {api_key}",
-                "Content-Type": "application/json",
-            },
-        )
-        with urllib.request.urlopen(req, timeout=30) as resp:
-            raw = json.loads(resp.read().decode())["choices"][0]["message"]["content"]
-        raw = raw.strip().removeprefix("```json").removeprefix("```json").removeprefix("```").removesuffix("```").strip()
-        d = json.loads(raw)
+    is_freemodel = api_key.startswith("fe_oa_")
+    is_groq      = api_key.startswith("gsk_")
+    if api_key and (is_openai or is_freemodel or is_groq):
+        try:
+            print(f"  [LLM URL] {base_url}/chat/completions")
+            print(f"  [LLM AUTH] Bearer {api_key[:8]}{'*' * (len(api_key) - 8)}")
+            resp = requests.post(
+                f"{base_url}/chat/completions",
+                headers={
+                    "Authorization": f"Bearer {api_key}",
+                    "Content-Type": "application/json",
+                },
+                json={
+                    "model": cfg.get("llm_model", "gpt-4o"),
+                    "messages": [{"role": "user", "content": prompt}],
+                    "temperature": 0.1,
+                    "max_tokens": 350,
+                },
+                timeout=30,
+            )
+            resp.raise_for_status()
+            raw = resp.json()["choices"][0]["message"]["content"]
+            raw = raw.strip().removeprefix("```json").removeprefix("```").removesuffix("```").strip()
+            d = json.loads(raw)
         except Exception as e:
-        print(f"  [LLM ERROR] {e}. Falling back to heuristic.")
-        d = _heuristic(fm)
+            print(f"  [LLM ERROR] {e}. Falling back to heuristic.")
+            d = _heuristic(fm)
     else:
         d = _heuristic(fm)
 

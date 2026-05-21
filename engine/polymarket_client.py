@@ -25,11 +25,38 @@ def search_markets(query: str, limit: int = 20) -> list[dict]:
     return data.get("events", [])
 
 
-def get_active_events(limit: int = 50) -> list[dict]:
+def get_active_events(limit: int = 200) -> list[dict]:
     """Get active (open) events sorted by volume. Single source of truth."""
     return _get(
         f"{GAMMA}/events?limit={limit}&active=true&closed=false&order=volume&ascending=false"
     )
+
+
+def get_daily_crypto_markets(limit: int = 100) -> list[dict]:
+    """
+    Fetch two slices of markets — soonest-resolving and highest 24h volume —
+    deduplicate by market ID, and return the combined list.
+    Filtering by 24h window and min volume is handled by filter_candidate_markets.
+    """
+    soonest = _get(
+        f"{GAMMA}/markets?active=true&closed=false&order=end_date&ascending=true&limit={limit}"
+    )
+    trending = _get(
+        f"{GAMMA}/markets?active=true&closed=false&order=volume24hr&ascending=false&limit={limit}"
+    )
+
+    seen = set()
+    combined = []
+    for m in soonest + trending:
+        mid = m.get("id")
+        if mid and mid not in seen:
+            seen.add(mid)
+            combined.append(m)
+
+    print(f"  [daily_crypto] soonest={len(soonest)} trending={len(trending)} combined={len(combined)} unique")
+    for m in combined[:3]:
+        print(f"  [daily_crypto]   · {m.get('question', '?')}")
+    return combined
 
 
 def trending_events(limit: int = 20) -> list[dict]:

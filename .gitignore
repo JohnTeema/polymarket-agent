@@ -27,6 +27,7 @@ data/*.sqlite
 # Node
 web/node_modules/
 web/dist/
+web/.svelte-kit/
 
 # Logs
 *.log

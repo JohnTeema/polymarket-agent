@@ -11,3 +11,369 @@
 {"ts": "2026-05-18T00:07:01.560879", "msg": "Found 272 candidate markets (min vol $50K)"}
 {"ts": "2026-05-18T00:07:37.462326", "msg": "Scanning active events..."}
 {"ts": "2026-05-18T00:07:42.018804", "msg": "Found 255 candidate markets (min vol $50K)"}
+{"ts": "2026-05-20T23:54:46.910912", "msg": "Scanning active events..."}
+{"ts": "2026-05-20T23:54:50.596851", "msg": "Found 247 candidate markets (min vol $50K)"}
+{"ts": "2026-05-20T23:56:46.440448", "msg": "============================================================"}
+{"ts": "2026-05-20T23:56:46.440996", "msg": "AGENT CYCLE START"}
+{"ts": "2026-05-20T23:56:46.441126", "msg": "============================================================"}
+{"ts": "2026-05-20T23:56:46.446609", "msg": "Scanning active events..."}
+{"ts": "2026-05-20T23:56:50.423195", "msg": "Found 247 candidate markets (min vol $50K)"}
+{"ts": "2026-05-20T23:56:50.435965", "msg": "Analyzing top 20 markets at volume priority..."}
+{"ts": "2026-05-20T23:56:50.444721", "msg": "Analyzing: Will Uzbekistan win the 2026 FIFA World Cup?"}
+{"ts": "2026-05-20T23:56:52.423105", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-20T23:56:52.430974", "msg": "Analyzing: Will Cura\u00e7ao win the 2026 FIFA World Cup?"}
+{"ts": "2026-05-20T23:56:54.153540", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-20T23:56:54.160246", "msg": "Analyzing: Will USA win the 2026 FIFA World Cup?"}
+{"ts": "2026-05-20T23:56:55.785274", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-20T23:56:55.789789", "msg": "Analyzing: Will New Zealand win the 2026 FIFA World Cup?"}
+{"ts": "2026-05-20T23:56:57.411651", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-20T23:56:57.415646", "msg": "Analyzing: Will the San Antonio Spurs win the 2026 NBA Finals?"}
+{"ts": "2026-05-20T23:56:58.980991", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-20T23:56:58.987223", "msg": "Analyzing: Will France win the 2026 FIFA World Cup?"}
+{"ts": "2026-05-20T23:57:00.764356", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-20T23:57:00.771189", "msg": "Analyzing: Will Saudi Arabia win the 2026 FIFA World Cup?"}
+{"ts": "2026-05-20T23:57:02.424220", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-20T23:57:02.425785", "msg": "Analyzing: Will South Africa win the 2026 FIFA World Cup?"}
+{"ts": "2026-05-20T23:57:04.851123", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-20T23:57:04.857956", "msg": "Analyzing: Will Jordan win the 2026 FIFA World Cup?"}
+{"ts": "2026-05-20T23:57:06.537991", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-20T23:57:06.547562", "msg": "Analyzing: Will Australia win the 2026 FIFA World Cup?"}
+{"ts": "2026-05-20T23:57:08.080770", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-20T23:57:08.087597", "msg": "Analyzing: Will South Korea win the 2026 FIFA World Cup?"}
+{"ts": "2026-05-20T23:57:09.752826", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-20T23:57:09.758545", "msg": "Analyzing: Will Austria win the 2026 FIFA World Cup?"}
+{"ts": "2026-05-20T23:57:11.352066", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-20T23:57:11.358314", "msg": "Analyzing: Will Iran win the 2026 FIFA World Cup?"}
+{"ts": "2026-05-20T23:57:13.032960", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-20T23:57:13.035400", "msg": "Analyzing: Will Egypt win the 2026 FIFA World Cup?"}
+{"ts": "2026-05-20T23:57:14.751814", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-20T23:57:14.756856", "msg": "Analyzing: Will Qatar win the 2026 FIFA World Cup?"}
+{"ts": "2026-05-20T23:57:16.378420", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-20T23:57:16.385191", "msg": "Analyzing: Will Canada win the 2026 FIFA World Cup?"}
+{"ts": "2026-05-20T23:57:18.113042", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-20T23:57:18.117539", "msg": "Analyzing: Will Ivory Coast win the 2026 FIFA World Cup?"}
+{"ts": "2026-05-20T23:57:19.707832", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-20T23:57:19.713889", "msg": "Analyzing: Will Japan win the 2026 FIFA World Cup?"}
+{"ts": "2026-05-20T23:57:21.350080", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-20T23:57:21.356418", "msg": "Analyzing: Will Algeria win the 2026 FIFA World Cup?"}
+{"ts": "2026-05-20T23:57:23.032393", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-20T23:57:23.036042", "msg": "Analyzing: Will Ecuador win the 2026 FIFA World Cup?"}
+{"ts": "2026-05-20T23:57:24.683423", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-20T23:57:24.686692", "msg": "\nCYCLE COMPLETE | Summary: {'total_positions': 0, 'open_positions': 0, 'total_pnl': 0, 'realized_pnl': 0, 'wins': 0}"}
+{"ts": "2026-05-21T00:03:01.562009", "msg": "============================================================"}
+{"ts": "2026-05-21T00:03:01.562546", "msg": "AGENT CYCLE START"}
+{"ts": "2026-05-21T00:03:01.562595", "msg": "============================================================"}
+{"ts": "2026-05-21T00:03:01.566798", "msg": "Scanning active events..."}
+{"ts": "2026-05-21T00:03:05.087080", "msg": "Found 247 candidate markets (min vol $50K)"}
+{"ts": "2026-05-21T00:03:05.092303", "msg": "Analyzing top 20 markets at volume priority..."}
+{"ts": "2026-05-21T00:03:05.095546", "msg": "Analyzing: Will Uzbekistan win the 2026 FIFA World Cup?"}
+{"ts": "2026-05-21T00:03:07.781925", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-21T00:03:07.784252", "msg": "Analyzing: Will Cura\u00e7ao win the 2026 FIFA World Cup?"}
+{"ts": "2026-05-21T00:03:09.996483", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-21T00:03:10.003656", "msg": "Analyzing: Will USA win the 2026 FIFA World Cup?"}
+{"ts": "2026-05-21T00:03:12.295043", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-21T00:03:12.302002", "msg": "Analyzing: Will New Zealand win the 2026 FIFA World Cup?"}
+{"ts": "2026-05-21T00:03:14.896433", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-21T00:03:14.903942", "msg": "Analyzing: Will the San Antonio Spurs win the 2026 NBA Finals?"}
+{"ts": "2026-05-21T00:03:17.054958", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-21T00:03:17.062473", "msg": "Analyzing: Will France win the 2026 FIFA World Cup?"}
+{"ts": "2026-05-21T00:03:19.427577", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-21T00:03:19.432284", "msg": "Analyzing: Will Saudi Arabia win the 2026 FIFA World Cup?"}
+{"ts": "2026-05-21T00:03:21.850341", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-21T00:03:21.858572", "msg": "Analyzing: Will South Africa win the 2026 FIFA World Cup?"}
+{"ts": "2026-05-21T00:03:24.069856", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-21T00:03:24.075021", "msg": "Analyzing: Will Jordan win the 2026 FIFA World Cup?"}
+{"ts": "2026-05-21T00:03:26.546284", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-21T00:03:26.551412", "msg": "Analyzing: Will Australia win the 2026 FIFA World Cup?"}
+{"ts": "2026-05-21T00:03:29.910788", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-21T00:03:29.917448", "msg": "Analyzing: Will South Korea win the 2026 FIFA World Cup?"}
+{"ts": "2026-05-21T00:03:32.352650", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-21T00:03:32.356727", "msg": "Analyzing: Will Austria win the 2026 FIFA World Cup?"}
+{"ts": "2026-05-21T00:03:34.437262", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-21T00:03:34.444354", "msg": "Analyzing: Will Iran win the 2026 FIFA World Cup?"}
+{"ts": "2026-05-21T00:03:36.808517", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-21T00:03:36.816450", "msg": "Analyzing: Will Egypt win the 2026 FIFA World Cup?"}
+{"ts": "2026-05-21T00:03:39.119451", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-21T00:03:39.125346", "msg": "Analyzing: Will Qatar win the 2026 FIFA World Cup?"}
+{"ts": "2026-05-21T00:03:41.789656", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-21T00:03:41.796117", "msg": "Analyzing: Will Canada win the 2026 FIFA World Cup?"}
+{"ts": "2026-05-21T00:03:43.923792", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-21T00:03:43.938222", "msg": "Analyzing: Will Ivory Coast win the 2026 FIFA World Cup?"}
+{"ts": "2026-05-21T00:03:46.177720", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-21T00:03:46.183386", "msg": "Analyzing: Will Japan win the 2026 FIFA World Cup?"}
+{"ts": "2026-05-21T00:03:48.395098", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-21T00:03:48.399036", "msg": "Analyzing: Will Algeria win the 2026 FIFA World Cup?"}
+{"ts": "2026-05-21T00:03:50.785342", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-21T00:03:50.787976", "msg": "Analyzing: Will Ecuador win the 2026 FIFA World Cup?"}
+{"ts": "2026-05-21T00:03:52.955330", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-21T00:03:52.958164", "msg": "\nCYCLE COMPLETE | Summary: {'total_positions': 0, 'open_positions': 0, 'total_pnl': 0, 'realized_pnl': 0, 'wins': 0}"}
+{"ts": "2026-05-21T00:06:59.294563", "msg": "============================================================"}
+{"ts": "2026-05-21T00:06:59.295051", "msg": "AGENT CYCLE START"}
+{"ts": "2026-05-21T00:06:59.295098", "msg": "============================================================"}
+{"ts": "2026-05-21T00:06:59.299259", "msg": "Scanning active events..."}
+{"ts": "2026-05-21T00:07:02.339991", "msg": "Found 247 candidate markets (min vol $50K)"}
+{"ts": "2026-05-21T00:07:02.343442", "msg": "Analyzing top 20 markets at volume priority..."}
+{"ts": "2026-05-21T00:07:02.345109", "msg": "Analyzing: Will Uzbekistan win the 2026 FIFA World Cup?"}
+{"ts": "2026-05-21T00:07:04.531774", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-21T00:07:04.540272", "msg": "Analyzing: Will Cura\u00e7ao win the 2026 FIFA World Cup?"}
+{"ts": "2026-05-21T00:07:06.568490", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-21T00:07:06.578183", "msg": "Analyzing: Will USA win the 2026 FIFA World Cup?"}
+{"ts": "2026-05-21T00:07:08.589899", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-21T00:07:08.596065", "msg": "Analyzing: Will New Zealand win the 2026 FIFA World Cup?"}
+{"ts": "2026-05-21T00:07:10.777310", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-21T00:07:10.782319", "msg": "Analyzing: Will the San Antonio Spurs win the 2026 NBA Finals?"}
+{"ts": "2026-05-21T00:07:12.923351", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-21T00:07:12.929406", "msg": "Analyzing: Will France win the 2026 FIFA World Cup?"}
+{"ts": "2026-05-21T00:07:15.053456", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-21T00:07:15.060585", "msg": "Analyzing: Will Saudi Arabia win the 2026 FIFA World Cup?"}
+{"ts": "2026-05-21T00:07:17.111989", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-21T00:07:17.119190", "msg": "Analyzing: Will South Africa win the 2026 FIFA World Cup?"}
+{"ts": "2026-05-21T00:07:19.173807", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-21T00:07:19.180503", "msg": "Analyzing: Will Jordan win the 2026 FIFA World Cup?"}
+{"ts": "2026-05-21T00:07:21.468670", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-21T00:07:21.472939", "msg": "Analyzing: Will Australia win the 2026 FIFA World Cup?"}
+{"ts": "2026-05-21T00:07:23.621293", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-21T00:07:23.626700", "msg": "Analyzing: Will South Korea win the 2026 FIFA World Cup?"}
+{"ts": "2026-05-21T00:07:25.698656", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-21T00:07:25.703103", "msg": "Analyzing: Will Austria win the 2026 FIFA World Cup?"}
+{"ts": "2026-05-21T00:07:27.866565", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-21T00:07:27.872614", "msg": "Analyzing: Will Iran win the 2026 FIFA World Cup?"}
+{"ts": "2026-05-21T00:07:29.976299", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-21T00:07:29.985975", "msg": "Analyzing: Will Egypt win the 2026 FIFA World Cup?"}
+{"ts": "2026-05-21T00:07:32.022562", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-21T00:07:32.029908", "msg": "Analyzing: Will Qatar win the 2026 FIFA World Cup?"}
+{"ts": "2026-05-21T00:07:34.076734", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-21T00:07:34.083196", "msg": "Analyzing: Will Canada win the 2026 FIFA World Cup?"}
+{"ts": "2026-05-21T00:07:36.208236", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-21T00:07:36.213393", "msg": "Analyzing: Will Ivory Coast win the 2026 FIFA World Cup?"}
+{"ts": "2026-05-21T00:07:38.307986", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-21T00:07:38.316017", "msg": "Analyzing: Will Japan win the 2026 FIFA World Cup?"}
+{"ts": "2026-05-21T00:07:40.386946", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-21T00:07:40.395329", "msg": "Analyzing: Will Algeria win the 2026 FIFA World Cup?"}
+{"ts": "2026-05-21T00:07:42.524914", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-21T00:07:42.531905", "msg": "Analyzing: Will Ecuador win the 2026 FIFA World Cup?"}
+{"ts": "2026-05-21T00:07:44.727981", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-21T00:07:44.729967", "msg": "\nCYCLE COMPLETE | Summary: {'total_positions': 0, 'open_positions': 0, 'total_pnl': 0, 'realized_pnl': 0, 'wins': 0}"}
+{"ts": "2026-05-21T00:10:37.366960", "msg": "============================================================"}
+{"ts": "2026-05-21T00:10:37.367926", "msg": "AGENT CYCLE START"}
+{"ts": "2026-05-21T00:10:37.367983", "msg": "============================================================"}
+{"ts": "2026-05-21T00:10:37.373112", "msg": "Scanning active events..."}
+{"ts": "2026-05-21T00:10:40.197929", "msg": "Found 247 candidate markets (min vol $50K)"}
+{"ts": "2026-05-21T00:10:40.201408", "msg": "Analyzing top 20 markets at volume priority..."}
+{"ts": "2026-05-21T00:10:40.203039", "msg": "Analyzing: Will Uzbekistan win the 2026 FIFA World Cup?"}
+{"ts": "2026-05-21T00:10:42.863627", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-21T00:10:42.869960", "msg": "Analyzing: Will Cura\u00e7ao win the 2026 FIFA World Cup?"}
+{"ts": "2026-05-21T00:10:45.058909", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-21T00:10:45.066818", "msg": "Analyzing: Will USA win the 2026 FIFA World Cup?"}
+{"ts": "2026-05-21T00:10:47.245618", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-21T00:10:47.252387", "msg": "Analyzing: Will New Zealand win the 2026 FIFA World Cup?"}
+{"ts": "2026-05-21T00:10:49.553440", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-21T00:10:49.560028", "msg": "Analyzing: Will the San Antonio Spurs win the 2026 NBA Finals?"}
+{"ts": "2026-05-21T00:10:51.646011", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-21T00:10:51.653208", "msg": "Analyzing: Will France win the 2026 FIFA World Cup?"}
+{"ts": "2026-05-21T00:10:53.973170", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-21T00:10:53.981223", "msg": "Analyzing: Will Saudi Arabia win the 2026 FIFA World Cup?"}
+{"ts": "2026-05-21T00:10:56.173603", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-21T00:10:56.180287", "msg": "Analyzing: Will South Africa win the 2026 FIFA World Cup?"}
+{"ts": "2026-05-21T00:10:58.684787", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-21T00:10:58.691811", "msg": "Analyzing: Will Jordan win the 2026 FIFA World Cup?"}
+{"ts": "2026-05-21T00:11:00.845453", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-21T00:11:00.853056", "msg": "Analyzing: Will Australia win the 2026 FIFA World Cup?"}
+{"ts": "2026-05-21T00:11:02.974301", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-21T00:11:02.981383", "msg": "Analyzing: Will South Korea win the 2026 FIFA World Cup?"}
+{"ts": "2026-05-21T00:11:05.284310", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-21T00:11:05.298952", "msg": "Analyzing: Will Austria win the 2026 FIFA World Cup?"}
+{"ts": "2026-05-21T00:11:07.539893", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-21T00:11:07.547150", "msg": "Analyzing: Will Iran win the 2026 FIFA World Cup?"}
+{"ts": "2026-05-21T00:11:09.767969", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-21T00:11:09.775659", "msg": "Analyzing: Will Egypt win the 2026 FIFA World Cup?"}
+{"ts": "2026-05-21T00:11:11.929547", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-21T00:11:11.937094", "msg": "Analyzing: Will Qatar win the 2026 FIFA World Cup?"}
+{"ts": "2026-05-21T00:11:14.296690", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-21T00:11:14.302928", "msg": "Analyzing: Will Canada win the 2026 FIFA World Cup?"}
+{"ts": "2026-05-21T00:11:16.468545", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-21T00:11:16.475425", "msg": "Analyzing: Will Ivory Coast win the 2026 FIFA World Cup?"}
+{"ts": "2026-05-21T00:11:19.611490", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-21T00:11:19.615497", "msg": "Analyzing: Will Japan win the 2026 FIFA World Cup?"}
+{"ts": "2026-05-21T00:11:21.723234", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-21T00:11:21.730383", "msg": "Analyzing: Will Algeria win the 2026 FIFA World Cup?"}
+{"ts": "2026-05-21T00:11:23.896943", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-21T00:11:23.904388", "msg": "Analyzing: Will Ecuador win the 2026 FIFA World Cup?"}
+{"ts": "2026-05-21T00:11:26.220865", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-21T00:11:26.223439", "msg": "\nCYCLE COMPLETE | Summary: {'total_positions': 0, 'open_positions': 0, 'total_pnl': 0, 'realized_pnl': 0, 'wins': 0}"}
+{"ts": "2026-05-21T00:39:11.031312", "msg": "============================================================"}
+{"ts": "2026-05-21T00:39:11.031759", "msg": "AGENT CYCLE START"}
+{"ts": "2026-05-21T00:39:11.031804", "msg": "============================================================"}
+{"ts": "2026-05-21T00:39:11.035784", "msg": "Scanning active events..."}
+{"ts": "2026-05-21T00:39:16.196035", "msg": "Found 247 candidate markets (min vol $50K)"}
+{"ts": "2026-05-21T00:39:16.199177", "msg": "Analyzing top 20 markets at volume priority..."}
+{"ts": "2026-05-21T00:39:16.200656", "msg": "Analyzing: Will Uzbekistan win the 2026 FIFA World Cup?"}
+{"ts": "2026-05-21T00:39:19.351280", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-21T00:39:19.356834", "msg": "Analyzing: Will Cura\u00e7ao win the 2026 FIFA World Cup?"}
+{"ts": "2026-05-21T00:39:22.118761", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-21T00:39:22.123716", "msg": "Analyzing: Will USA win the 2026 FIFA World Cup?"}
+{"ts": "2026-05-21T00:39:24.859785", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-21T00:39:24.865068", "msg": "Analyzing: Will New Zealand win the 2026 FIFA World Cup?"}
+{"ts": "2026-05-21T00:39:27.778109", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-21T00:39:27.783993", "msg": "Analyzing: Will the San Antonio Spurs win the 2026 NBA Finals?"}
+{"ts": "2026-05-21T00:39:30.509159", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-21T00:39:30.511462", "msg": "Analyzing: Will France win the 2026 FIFA World Cup?"}
+{"ts": "2026-05-21T00:39:33.114128", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-21T00:39:33.119863", "msg": "Analyzing: Will Saudi Arabia win the 2026 FIFA World Cup?"}
+{"ts": "2026-05-21T00:39:35.928697", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-21T00:39:35.936114", "msg": "Analyzing: Will South Africa win the 2026 FIFA World Cup?"}
+{"ts": "2026-05-21T00:39:38.749024", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-21T00:39:38.754737", "msg": "Analyzing: Will Jordan win the 2026 FIFA World Cup?"}
+{"ts": "2026-05-21T00:39:41.448869", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-21T00:39:41.454192", "msg": "Analyzing: Will Australia win the 2026 FIFA World Cup?"}
+{"ts": "2026-05-21T00:39:44.207864", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-21T00:39:44.212167", "msg": "Analyzing: Will South Korea win the 2026 FIFA World Cup?"}
+{"ts": "2026-05-21T00:39:47.246844", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-21T00:39:47.252967", "msg": "Analyzing: Will Austria win the 2026 FIFA World Cup?"}
+{"ts": "2026-05-21T00:39:49.981830", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-21T00:39:49.986836", "msg": "Analyzing: Will Iran win the 2026 FIFA World Cup?"}
+{"ts": "2026-05-21T00:39:53.179129", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-21T00:39:53.187759", "msg": "Analyzing: Will Egypt win the 2026 FIFA World Cup?"}
+{"ts": "2026-05-21T00:39:56.361193", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-21T00:39:56.364581", "msg": "Analyzing: Will Qatar win the 2026 FIFA World Cup?"}
+{"ts": "2026-05-21T00:39:59.189892", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-21T00:39:59.195062", "msg": "Analyzing: Will Canada win the 2026 FIFA World Cup?"}
+{"ts": "2026-05-21T00:40:02.171487", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-21T00:40:02.175098", "msg": "Analyzing: Will Ivory Coast win the 2026 FIFA World Cup?"}
+{"ts": "2026-05-21T00:40:06.162563", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-21T00:40:06.167249", "msg": "Analyzing: Will Japan win the 2026 FIFA World Cup?"}
+{"ts": "2026-05-21T00:40:08.744172", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-21T00:40:08.748172", "msg": "Analyzing: Will Algeria win the 2026 FIFA World Cup?"}
+{"ts": "2026-05-21T00:40:11.491046", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-21T00:40:11.496778", "msg": "Analyzing: Will Ecuador win the 2026 FIFA World Cup?"}
+{"ts": "2026-05-21T00:40:14.249600", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-21T00:40:14.252544", "msg": "\nCYCLE COMPLETE | Summary: {'total_positions': 0, 'open_positions': 0, 'total_pnl': 0, 'realized_pnl': 0, 'wins': 0}"}
+{"ts": "2026-05-21T00:43:01.169436", "msg": "============================================================"}
+{"ts": "2026-05-21T00:43:01.170034", "msg": "AGENT CYCLE START"}
+{"ts": "2026-05-21T00:43:01.170089", "msg": "============================================================"}
+{"ts": "2026-05-21T00:43:01.172188", "msg": "Scanning active events..."}
+{"ts": "2026-05-21T00:43:05.107085", "msg": "Found 247 candidate markets (min vol $50K)"}
+{"ts": "2026-05-21T00:43:05.111420", "msg": "Analyzing top 20 markets at volume priority..."}
+{"ts": "2026-05-21T00:43:05.113191", "msg": "Analyzing: Will Uzbekistan win the 2026 FIFA World Cup?"}
+{"ts": "2026-05-21T00:43:07.787745", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-21T00:43:07.792990", "msg": "Analyzing: Will Cura\u00e7ao win the 2026 FIFA World Cup?"}
+{"ts": "2026-05-21T00:43:10.411000", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-21T00:43:10.416489", "msg": "Analyzing: Will USA win the 2026 FIFA World Cup?"}
+{"ts": "2026-05-21T00:43:13.278058", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-21T00:43:13.284234", "msg": "Analyzing: Will New Zealand win the 2026 FIFA World Cup?"}
+{"ts": "2026-05-21T00:43:17.358880", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-21T00:43:17.366142", "msg": "Analyzing: Will the San Antonio Spurs win the 2026 NBA Finals?"}
+{"ts": "2026-05-21T00:43:20.039780", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-21T00:43:20.045559", "msg": "Analyzing: Will France win the 2026 FIFA World Cup?"}
+{"ts": "2026-05-21T00:43:22.745901", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-21T00:43:22.751882", "msg": "Analyzing: Will Saudi Arabia win the 2026 FIFA World Cup?"}
+{"ts": "2026-05-21T00:43:25.459797", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-21T00:43:25.465904", "msg": "Analyzing: Will South Africa win the 2026 FIFA World Cup?"}
+{"ts": "2026-05-21T00:43:30.347702", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-21T00:43:30.353958", "msg": "Analyzing: Will Jordan win the 2026 FIFA World Cup?"}
+{"ts": "2026-05-21T00:43:33.350554", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-21T00:43:33.356253", "msg": "Analyzing: Will Australia win the 2026 FIFA World Cup?"}
+{"ts": "2026-05-21T00:43:36.624442", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-21T00:43:36.630452", "msg": "Analyzing: Will South Korea win the 2026 FIFA World Cup?"}
+{"ts": "2026-05-21T00:43:39.832658", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-21T00:43:39.838290", "msg": "Analyzing: Will Austria win the 2026 FIFA World Cup?"}
+{"ts": "2026-05-21T00:43:43.077634", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-21T00:43:43.094136", "msg": "Analyzing: Will Iran win the 2026 FIFA World Cup?"}
+{"ts": "2026-05-21T00:43:47.106481", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-21T00:43:47.111093", "msg": "Analyzing: Will Egypt win the 2026 FIFA World Cup?"}
+{"ts": "2026-05-21T00:43:52.058983", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-21T00:43:52.065562", "msg": "Analyzing: Will Qatar win the 2026 FIFA World Cup?"}
+{"ts": "2026-05-21T00:43:55.089255", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-21T00:43:55.093847", "msg": "Analyzing: Will Canada win the 2026 FIFA World Cup?"}
+{"ts": "2026-05-21T00:43:57.966612", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-21T00:43:57.971064", "msg": "Analyzing: Will Ivory Coast win the 2026 FIFA World Cup?"}
+{"ts": "2026-05-21T00:44:02.329817", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-21T00:44:02.335992", "msg": "Analyzing: Will Japan win the 2026 FIFA World Cup?"}
+{"ts": "2026-05-21T00:44:05.303980", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-21T00:44:05.306292", "msg": "Analyzing: Will Algeria win the 2026 FIFA World Cup?"}
+{"ts": "2026-05-21T00:44:08.449137", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-21T00:44:08.454737", "msg": "Analyzing: Will Ecuador win the 2026 FIFA World Cup?"}
+{"ts": "2026-05-21T00:44:11.413162", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-21T00:44:11.416092", "msg": "\nCYCLE COMPLETE | Summary: {'total_positions': 0, 'open_positions': 0, 'total_pnl': 0, 'realized_pnl': 0, 'wins': 0}"}
+{"ts": "2026-05-21T00:48:48.500117", "msg": "Scanning active events..."}
+{"ts": "2026-05-21T00:48:50.504148", "msg": "Found 1 candidate markets (min vol $50K)"}
+{"ts": "2026-05-21T00:54:42.192495", "msg": "Scanning active events..."}
+{"ts": "2026-05-21T00:54:44.748659", "msg": "Found 15 candidate markets (min vol $50K)"}
+{"ts": "2026-05-21T00:58:33.356864", "msg": "Scanning active events..."}
+{"ts": "2026-05-21T00:58:35.870512", "msg": "Found 15 candidate markets (min vol $50K)"}
+{"ts": "2026-05-21T01:00:44.288376", "msg": "Scanning active events..."}
+{"ts": "2026-05-21T01:00:46.740548", "msg": "Found 15 candidate markets (min vol $50K)"}
+{"ts": "2026-05-21T01:05:31.859614", "msg": "get_daily_crypto_markets: 0 candidates resolving within 24h"}
+{"ts": "2026-05-21T01:05:31.860525", "msg": "Scanning active events..."}
+{"ts": "2026-05-21T01:05:34.402865", "msg": "Found 15 candidate markets (min vol $50K)"}
+{"ts": "2026-05-21T01:17:19.541352", "msg": "get_daily_crypto_markets: 0 candidates resolving within 24h"}
+{"ts": "2026-05-21T01:17:19.542890", "msg": "Scanning active events..."}
+{"ts": "2026-05-21T01:17:22.019581", "msg": "Found 15 candidate markets (min vol $50K)"}
+{"ts": "2026-05-21T01:18:10.336049", "msg": "get_daily_crypto_markets: 0 candidates resolving within 24h"}
+{"ts": "2026-05-21T01:18:10.336656", "msg": "Scanning active events..."}
+{"ts": "2026-05-21T01:18:13.956840", "msg": "Found 15 candidate markets (min vol $50K)"}
+{"ts": "2026-05-21T01:20:18.699235", "msg": "============================================================"}
+{"ts": "2026-05-21T01:20:18.699796", "msg": "AGENT CYCLE START"}
+{"ts": "2026-05-21T01:20:18.699850", "msg": "============================================================"}
+{"ts": "2026-05-21T01:20:19.822225", "msg": "get_daily_crypto_markets: 0 candidates resolving within 24h"}
+{"ts": "2026-05-21T01:20:19.822689", "msg": "Scanning active events..."}
+{"ts": "2026-05-21T01:20:22.440226", "msg": "Found 15 candidate markets (min vol $50K)"}
+{"ts": "2026-05-21T01:20:22.443759", "msg": "Analyzing top 15 markets resolving within 24h, sorted by volume..."}
+{"ts": "2026-05-21T01:20:22.445228", "msg": "Analyzing: Spurs vs. Thunder"}
+{"ts": "2026-05-21T01:20:25.607121", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-21T01:20:25.613480", "msg": "Analyzing: Will Grigor Dimitrov win the 2026 Australian Open?"}
+{"ts": "2026-05-21T01:20:28.575181", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-21T01:20:28.581291", "msg": "Analyzing: Spread: Thunder (-6.5)"}
+{"ts": "2026-05-21T01:20:31.852333", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-21T01:20:31.859590", "msg": "Analyzing: Spurs vs. Thunder: O/U 216.5"}
+{"ts": "2026-05-21T01:20:34.755523", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-21T01:20:34.758286", "msg": "Analyzing: Spread: Thunder (-5.5)"}
+{"ts": "2026-05-21T01:20:37.583218", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-21T01:20:37.589819", "msg": "Analyzing: Spread: Thunder (-7.5)"}
+{"ts": "2026-05-21T01:20:40.442912", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-21T01:20:40.448705", "msg": "Analyzing: Spurs vs. Thunder: O/U 215.5"}
+{"ts": "2026-05-21T01:20:43.421660", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-21T01:20:43.438690", "msg": "Analyzing: Spread: Thunder (-8.5)"}
+{"ts": "2026-05-21T01:20:46.091088", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-21T01:20:46.096852", "msg": "Analyzing: Spurs vs. Thunder: O/U 213.5"}
+{"ts": "2026-05-21T01:20:48.952103", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-21T01:20:48.957845", "msg": "Analyzing: Spurs vs. Thunder: O/U 217.5"}
+{"ts": "2026-05-21T01:20:51.682011", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-21T01:20:51.687964", "msg": "Analyzing: Spurs vs. Thunder: O/U 219.5"}
+{"ts": "2026-05-21T01:20:54.595676", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-21T01:20:54.602255", "msg": "Analyzing: Spread: Thunder (-2.5)"}
+{"ts": "2026-05-21T01:20:57.515255", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-21T01:20:57.518720", "msg": "Analyzing: Spread: Thunder (-14.5)"}
+{"ts": "2026-05-21T01:21:00.414733", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-21T01:21:00.416857", "msg": "Analyzing: Spread: Thunder (-11.5)"}
+{"ts": "2026-05-21T01:21:03.250730", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-21T01:21:03.257697", "msg": "Analyzing: Spurs vs. Thunder: O/U 207.5"}
+{"ts": "2026-05-21T01:21:06.055974", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-21T01:21:06.058622", "msg": "\nCYCLE COMPLETE | Summary: {'total_positions': 0, 'open_positions': 0, 'total_pnl': 0, 'realized_pnl': 0, 'wins': 0}"}
+{"ts": "2026-05-21T01:26:00.717162", "msg": "============================================================"}
+{"ts": "2026-05-21T01:26:00.717615", "msg": "AGENT CYCLE START"}
+{"ts": "2026-05-21T01:26:00.717668", "msg": "============================================================"}
+{"ts": "2026-05-21T01:26:02.043204", "msg": "get_daily_crypto_markets: 0 candidates resolving within 24h"}
+{"ts": "2026-05-21T01:26:02.043734", "msg": "Scanning active events..."}
+{"ts": "2026-05-21T01:26:04.363428", "msg": "Found 15 candidate markets (min vol $50K)"}
+{"ts": "2026-05-21T01:26:04.367316", "msg": "Analyzing top 15 markets resolving within 24h, sorted by volume..."}
+{"ts": "2026-05-21T01:26:04.369104", "msg": "Analyzing: Spurs vs. Thunder"}
+{"ts": "2026-05-21T01:26:06.951802", "msg": "Opened paper position #1: YES on Spurs vs. Thunder"}
+{"ts": "2026-05-21T01:26:06.954466", "msg": "Analyzing: Will Grigor Dimitrov win the 2026 Australian Open?"}
+{"ts": "2026-05-21T01:26:09.728933", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-21T01:26:09.735106", "msg": "Analyzing: Spread: Thunder (-6.5)"}
+{"ts": "2026-05-21T01:26:12.650508", "msg": "Opened paper position #2: YES on Spread: Thunder (-6.5)"}
+{"ts": "2026-05-21T01:26:12.654637", "msg": "Analyzing: Spurs vs. Thunder: O/U 216.5"}
+{"ts": "2026-05-21T01:26:15.252529", "msg": "Analyzing: Spread: Thunder (-5.5)"}
+{"ts": "2026-05-21T01:26:17.966181", "msg": "Opened paper position #3: YES on Spread: Thunder (-5.5)"}
+{"ts": "2026-05-21T01:26:17.970088", "msg": "Analyzing: Spread: Thunder (-7.5)"}
+{"ts": "2026-05-21T01:26:20.639914", "msg": "Analyzing: Spurs vs. Thunder: O/U 215.5"}
+{"ts": "2026-05-21T01:26:23.841940", "msg": "Analyzing: Spread: Thunder (-8.5)"}
+{"ts": "2026-05-21T01:26:26.628677", "msg": "Analyzing: Spurs vs. Thunder: O/U 213.5"}
+{"ts": "2026-05-21T01:26:29.701581", "msg": "Analyzing: Spurs vs. Thunder: O/U 217.5"}
+{"ts": "2026-05-21T01:26:32.966768", "msg": "Analyzing: Spurs vs. Thunder: O/U 219.5"}
+{"ts": "2026-05-21T01:26:37.237185", "msg": "Opened paper position #4: YES on Spurs vs. Thunder: O/U 219.5"}
+{"ts": "2026-05-21T01:26:37.241545", "msg": "Analyzing: Spread: Thunder (-2.5)"}
+{"ts": "2026-05-21T01:26:40.428672", "msg": "Opened paper position #5: YES on Spread: Thunder (-2.5)"}
+{"ts": "2026-05-21T01:26:40.433564", "msg": "Max open positions reached \u2014 stopping analysis."}
+{"ts": "2026-05-21T01:26:40.437544", "msg": "\nCYCLE COMPLETE | Summary: {'total_positions': 5, 'open_positions': 5, 'total_pnl': 0.0, 'realized_pnl': 0, 'wins': 0}"}
