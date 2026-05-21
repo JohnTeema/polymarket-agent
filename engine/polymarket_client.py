@@ -37,6 +37,47 @@ def get_active_events(limit: int = 200) -> list[dict]:
         return []
 
 
+def get_crypto_updown_markets() -> list[dict]:
+    """
+    Fetch 'up or down' crypto price markets via two Gamma API calls:
+    1. Slug search for the canonical bitcoin-up-or-down event
+    2. Crypto-tagged events sorted by 24hr volume
+    Extracts nested markets, filters for 'up or down' in the question.
+    Returns a flat list of market dicts.
+    """
+    raw_events: list[dict] = []
+
+    try:
+        raw_events += _get(
+            f"{GAMMA}/events?slug=bitcoin-up-or-down&active=true&closed=false&limit=10"
+        )
+    except Exception as e:
+        print(f"  [updown] slug search failed: {e}")
+
+    try:
+        raw_events += _get(
+            f"{GAMMA}/events?active=true&closed=false&limit=50&tag=crypto&order=volume24hr&ascending=false"
+        )
+    except Exception as e:
+        print(f"  [updown] tag search failed: {e}")
+
+    markets: list[dict] = []
+    seen: set = set()
+    for evt in raw_events:
+        for m in evt.get("markets", []):
+            if "up or down" not in m.get("question", "").lower():
+                continue
+            mid = m.get("id")
+            if mid and mid not in seen:
+                seen.add(mid)
+                markets.append(m)
+
+    print(f"  [updown] found {len(markets)} 'up or down' markets")
+    for m in markets[:3]:
+        print(f"  [updown]   · {m.get('question', '?')}")
+    return markets
+
+
 _DAILY_KEYWORDS = {"up or down", "hourly", "daily"}
 
 def get_crypto_daily_markets(limit: int = 200) -> list[dict]:

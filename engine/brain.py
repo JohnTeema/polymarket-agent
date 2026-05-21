@@ -13,7 +13,8 @@ from engine.ledger import (
 )
 from engine.polymarket_client import (
     get_active_events, get_daily_crypto_markets, get_crypto_daily_markets,
-    format_market, get_orderbook, get_price_history, get_market_by_id,
+    get_crypto_updown_markets, format_market, get_orderbook, get_price_history,
+    get_market_by_id,
 )
 from engine.strategies import make_trading_decision, load_config, filter_candidate_markets
 
@@ -177,7 +178,7 @@ def run_scan_only(verbose: bool = False):
     """Just scan and return candidates — no trades."""
     try:
         print("[brain] trying daily crypto scan...")
-        flat = _combine_flat_markets(get_daily_crypto_markets(), get_crypto_daily_markets())
+        flat = _combine_flat_markets(get_daily_crypto_markets(), get_crypto_daily_markets(), get_crypto_updown_markets())
         candidates = filter_candidate_markets(_wrap_as_crypto_events(flat), min_volume=50_000)
         log(f"Crypto scan: {len(candidates)} candidates from {len(flat)} raw markets")
     except Exception as e:
@@ -356,7 +357,7 @@ def run_full_cycle(scan_only: bool = False):
 
     try:
         print("[brain] trying daily crypto scan...")
-        flat = _combine_flat_markets(get_daily_crypto_markets(), get_crypto_daily_markets())
+        flat = _combine_flat_markets(get_daily_crypto_markets(), get_crypto_daily_markets(), get_crypto_updown_markets())
         candidates = filter_candidate_markets(_wrap_as_crypto_events(flat), min_volume=50_000)
         log(f"Crypto scan: {len(candidates)} candidates from {len(flat)} raw markets")
     except Exception as e:
@@ -369,6 +370,14 @@ def run_full_cycle(scan_only: bool = False):
     if not candidates:
         log("No candidate markets found.")
         return
+
+    _PRIORITY_KEYWORDS = {"up or down", "bitcoin", "price of"}
+
+    def _priority(candidate: tuple) -> int:
+        q = candidate[0].get("question", "").lower()
+        return 0 if any(kw in q for kw in _PRIORITY_KEYWORDS) else 1
+
+    candidates = sorted(candidates, key=_priority)
 
     cfg = load_config()
     max_to_analyze = cfg.get("scan_limit", 20)

@@ -623,3 +623,39 @@
 {"ts": "2026-05-21T16:40:10.449073", "msg": "  [SETTLE] #11 \u2014 still open, skipping"}
 {"ts": "2026-05-21T16:40:11.026766", "msg": "  [SETTLE] #9 \u2014 still open, skipping"}
 {"ts": "2026-05-21T16:40:11.527122", "msg": "[SETTLED] Position #8 \u2014 LOST -$300.00 | LoL: Dplus KIA vs HANJIN BRION - Game 2 Winner"}
+{"ts": "2026-05-21T16:52:51.963922", "msg": "Crypto scan: 29 candidates from 816 raw markets"}
+{"ts": "2026-05-21T16:58:42.107153", "msg": "============================================================"}
+{"ts": "2026-05-21T16:58:42.107879", "msg": "AGENT CYCLE START"}
+{"ts": "2026-05-21T16:58:42.107940", "msg": "============================================================"}
+{"ts": "2026-05-21T16:58:42.112494", "msg": "Checking exit opportunities for 4 open position(s)..."}
+{"ts": "2026-05-21T16:58:42.112554", "msg": "  [EXIT CHECK] #13 \u2014 opened <1h ago, skipping"}
+{"ts": "2026-05-21T16:58:42.112593", "msg": "  [EXIT CHECK] #12 \u2014 opened <1h ago, skipping"}
+{"ts": "2026-05-21T16:58:42.112627", "msg": "  [EXIT CHECK] #11 \u2014 opened <1h ago, skipping"}
+{"ts": "2026-05-21T16:58:42.781885", "msg": "  [EXIT CHECK] #9 YES | entry=31.5% current=33.5% | chg=+6.3%"}
+{"ts": "2026-05-21T16:58:48.367391", "msg": "Crypto scan: 29 candidates from 810 raw markets"}
+{"ts": "2026-05-21T16:58:48.368918", "msg": "Analyzing top 20 markets resolving within 24h, sorted by volume..."}
+{"ts": "2026-05-21T16:58:48.370652", "msg": "Analyzing: Iran closes its airspace by May 21?"}
+{"ts": "2026-05-21T16:58:51.562513", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-21T16:58:51.569285", "msg": "Analyzing: US x Iran permanent peace deal by May 22, 2026?"}
+{"ts": "2026-05-21T16:58:54.521409", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-21T16:58:54.528431", "msg": "Analyzing: US x Iran diplomatic meeting by May 31, 2026?"}
+{"ts": "2026-05-21T16:58:57.639428", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-21T16:58:57.645195", "msg": "Analyzing: US x Iran diplomatic meeting by June 30, 2026?"}
+{"ts": "2026-05-21T16:59:00.572609", "msg": "Analyzing: Will MegaETH perform an airdrop by June 30? "}
+{"ts": "2026-05-21T16:59:03.650371", "msg": "[SKIP] Already traded this market \u2014 Will MegaETH perform an airdrop by June 30? "}
+{"ts": "2026-05-21T16:59:03.654780", "msg": "Analyzing: Cavaliers vs. Knicks"}
+{"ts": "2026-05-21T16:59:06.299213", "msg": "Analyzing: Dota 2: Team Falcons vs PARIVISION (BO3) - DreamLeague Playoffs"}
+{"ts": "2026-05-21T16:59:09.275231", "msg": "[SKIP] Already traded this market \u2014 Dota 2: Team Falcons vs PARIVISION (BO3) - DreamLeague Playo"}
+{"ts": "2026-05-21T16:59:09.278925", "msg": "Analyzing: Will Janez Jan\u0161a be the next Prime Minister of Slovenia?"}
+{"ts": "2026-05-21T16:59:12.088555", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-21T16:59:12.095714", "msg": "Analyzing: Will Elon Musk post 300-319 tweets from May 15 to May 22, 2026?"}
+{"ts": "2026-05-21T16:59:15.405873", "msg": "[CONFLICT] Skipping \u2014 contradicts position #12"}
+{"ts": "2026-05-21T16:59:15.409616", "msg": "Analyzing: Will Elon Musk post 320-339 tweets from May 15 to May 22, 2026?"}
+{"ts": "2026-05-21T16:59:19.151096", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-21T16:59:19.157541", "msg": "Analyzing: Will Elon Musk post 280-299 tweets from May 15 to May 22, 2026?"}
+{"ts": "2026-05-21T16:59:22.777442", "msg": "Analyzing: Will Elon Musk post 260-279 tweets from May 15 to May 22, 2026?"}
+{"ts": "2026-05-21T16:59:26.113456", "msg": "[CONFLICT] Skipping \u2014 contradicts position #12"}
+{"ts": "2026-05-21T16:59:26.119259", "msg": "Analyzing: LoL: KT Rolster vs Gen.G (BO3) - LCK Rounds 1-2"}
+{"ts": "2026-05-21T16:59:29.627041", "msg": "Opened paper position #14: YES on LoL: KT Rolster vs Gen.G (BO3) - LCK Rounds 1-2"}
+{"ts": "2026-05-21T16:59:29.630049", "msg": "Max open positions reached \u2014 stopping analysis."}
+{"ts": "2026-05-21T16:59:29.630660", "msg": "\nCYCLE COMPLETE | Summary: {'total_positions': 14, 'open_positions': 5, 'total_pnl': -713.01, 'realized_pnl': -713.01, 'wins': 5}"}

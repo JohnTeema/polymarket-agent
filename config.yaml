@@ -4,7 +4,7 @@
 paper_capital: 10000           # Starting bankroll (paper)
 max_capital_per_trade: 300     # Max $ per bet
 kelly_fraction: 0.25           # 1/4 Kelly (conservative)
-max_open_positions: 5
+max_open_positions: 8
 scan_limit: 20                 # Top N markets to analyze each cycle
 min_volume: 50000              # Minimum $ volume to consider
 
