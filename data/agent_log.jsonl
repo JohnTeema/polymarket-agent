@@ -377,3 +377,249 @@
 {"ts": "2026-05-21T01:26:40.428672", "msg": "Opened paper position #5: YES on Spread: Thunder (-2.5)"}
 {"ts": "2026-05-21T01:26:40.433564", "msg": "Max open positions reached \u2014 stopping analysis."}
 {"ts": "2026-05-21T01:26:40.437544", "msg": "\nCYCLE COMPLETE | Summary: {'total_positions': 5, 'open_positions': 5, 'total_pnl': 0.0, 'realized_pnl': 0, 'wins': 0}"}
+{"ts": "2026-05-21T12:59:59.137416", "msg": "Checking settlement for 5 open position(s)..."}
+{"ts": "2026-05-21T12:59:59.928192", "msg": "[SETTLED] Position #5 \u2014 WON +$78.00 | Spread: Thunder (-2.5)"}
+{"ts": "2026-05-21T13:00:00.477409", "msg": "[SETTLED] Position #4 \u2014 WON +$93.00 | Spurs vs. Thunder: O/U 219.5"}
+{"ts": "2026-05-21T13:00:01.011200", "msg": "[SETTLED] Position #3 \u2014 WON +$106.50 | Spread: Thunder (-5.5)"}
+{"ts": "2026-05-21T13:00:01.545139", "msg": "[SETTLED] Position #2 \u2014 WON +$121.50 | Spread: Thunder (-6.5)"}
+{"ts": "2026-05-21T13:00:02.058738", "msg": "[SETTLED] Position #1 \u2014 LOST -$300.00 | Spurs vs. Thunder"}
+{"ts": "2026-05-21T13:02:24.027389", "msg": "============================================================"}
+{"ts": "2026-05-21T13:02:24.028109", "msg": "AGENT CYCLE START"}
+{"ts": "2026-05-21T13:02:24.028156", "msg": "============================================================"}
+{"ts": "2026-05-21T13:02:27.007116", "msg": "get_daily_crypto_markets: 0 candidates resolving within 24h"}
+{"ts": "2026-05-21T13:02:27.007590", "msg": "Scanning active events..."}
+{"ts": "2026-05-21T13:02:29.349396", "msg": "Found 1 candidate markets (min vol $50K)"}
+{"ts": "2026-05-21T13:02:29.352699", "msg": "Analyzing top 1 markets resolving within 24h, sorted by volume..."}
+{"ts": "2026-05-21T13:02:29.354311", "msg": "Analyzing: Will Grigor Dimitrov win the 2026 Australian Open?"}
+{"ts": "2026-05-21T13:02:31.347162", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-21T13:02:31.349292", "msg": "\nCYCLE COMPLETE | Summary: {'total_positions': 5, 'open_positions': 0, 'total_pnl': 99.0, 'realized_pnl': 99.0, 'wins': 4}"}
+{"ts": "2026-05-21T13:11:30.299629", "msg": "Crypto scan: 61 candidates from 977 raw markets"}
+{"ts": "2026-05-21T13:12:47.738142", "msg": "============================================================"}
+{"ts": "2026-05-21T13:12:47.738917", "msg": "AGENT CYCLE START"}
+{"ts": "2026-05-21T13:12:47.738964", "msg": "============================================================"}
+{"ts": "2026-05-21T13:12:55.281701", "msg": "Crypto scan: 60 candidates from 974 raw markets"}
+{"ts": "2026-05-21T13:12:55.285446", "msg": "Analyzing top 20 markets resolving within 24h, sorted by volume..."}
+{"ts": "2026-05-21T13:12:55.288203", "msg": "Analyzing: Will Trump say \"Iran\" during events with Xi Jinping?"}
+{"ts": "2026-05-21T13:12:58.707453", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-21T13:12:58.716206", "msg": "Analyzing: Will Trump say \"Nuclear\" during events with Xi Jinping?"}
+{"ts": "2026-05-21T13:13:01.568796", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-21T13:13:01.577183", "msg": "Analyzing: Will Trump say \"Strait\" or \"Hormuz\" during events with Xi Jinping?"}
+{"ts": "2026-05-21T13:13:04.596060", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-21T13:13:04.602299", "msg": "Analyzing: Iran closes its airspace by May 21?"}
+{"ts": "2026-05-21T13:13:07.437883", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-21T13:13:07.444560", "msg": "Analyzing: US x Iran diplomatic meeting by May 31, 2026?"}
+{"ts": "2026-05-21T13:13:10.984650", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-21T13:13:10.990417", "msg": "Analyzing: US x Iran permanent peace deal by May 22, 2026?"}
+{"ts": "2026-05-21T13:13:13.856631", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-21T13:13:13.862256", "msg": "Analyzing: Will Donald Trump announce that the United States blockade of the Strait of Hormuz has been lifted by May 22, 2026?"}
+{"ts": "2026-05-21T13:13:16.721519", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-21T13:13:16.728293", "msg": "Analyzing: US x Iran diplomatic meeting by June 30, 2026?"}
+{"ts": "2026-05-21T13:13:19.620683", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-21T13:13:19.626809", "msg": "Analyzing: Will MegaETH perform an airdrop by June 30? "}
+{"ts": "2026-05-21T13:13:22.491318", "msg": "Opened paper position #6: YES on Will MegaETH perform an airdrop by June 30? "}
+{"ts": "2026-05-21T13:13:22.494366", "msg": "Analyzing: LoL: Dplus KIA vs HANJIN BRION (BO3) - LCK Rounds 1-2"}
+{"ts": "2026-05-21T13:17:58.107701", "msg": "============================================================"}
+{"ts": "2026-05-21T13:17:58.108516", "msg": "AGENT CYCLE START"}
+{"ts": "2026-05-21T13:17:58.108570", "msg": "============================================================"}
+{"ts": "2026-05-21T13:17:58.113173", "msg": "Checking exit opportunities for 1 open position(s)..."}
+{"ts": "2026-05-21T13:17:58.775801", "msg": "  [EXIT CHECK] #6 YES | entry=31.8% current=0.1% | chg=-99.7%"}
+{"ts": "2026-05-21T13:17:58.776834", "msg": "[EXIT] Selling position #6 \u2014 stop loss hit (-99.7%)"}
+{"ts": "2026-05-21T13:20:22.233578", "msg": "Crypto scan: 62 candidates from 956 raw markets"}
+{"ts": "2026-05-21T13:20:22.240073", "msg": "Analyzing top 20 markets resolving within 24h, sorted by volume..."}
+{"ts": "2026-05-21T13:20:22.248993", "msg": "Analyzing: Will Trump say \"Iran\" during events with Xi Jinping?"}
+{"ts": "2026-05-21T13:20:25.610305", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-21T13:20:25.617849", "msg": "Analyzing: Will Trump say \"Nuclear\" during events with Xi Jinping?"}
+{"ts": "2026-05-21T13:20:28.488552", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-21T13:20:28.497763", "msg": "Analyzing: Will Trump say \"Strait\" or \"Hormuz\" during events with Xi Jinping?"}
+{"ts": "2026-05-21T13:20:32.666645", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-21T13:20:32.674128", "msg": "Analyzing: Iran closes its airspace by May 21?"}
+{"ts": "2026-05-21T13:20:36.616015", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-21T13:20:36.625066", "msg": "Analyzing: US x Iran diplomatic meeting by May 31, 2026?"}
+{"ts": "2026-05-21T13:20:39.297226", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-21T13:20:39.305609", "msg": "Analyzing: US x Iran permanent peace deal by May 22, 2026?"}
+{"ts": "2026-05-21T13:20:43.310384", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-21T13:20:43.321135", "msg": "Analyzing: Will Donald Trump announce that the United States blockade of the Strait of Hormuz has been lifted by May 22, 2026?"}
+{"ts": "2026-05-21T13:20:46.259324", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-21T13:20:46.268607", "msg": "Analyzing: US x Iran diplomatic meeting by June 30, 2026?"}
+{"ts": "2026-05-21T13:20:49.131302", "msg": "Opened paper position #7: YES on US x Iran diplomatic meeting by June 30, 2026?"}
+{"ts": "2026-05-21T13:20:49.136068", "msg": "Analyzing: Will MegaETH perform an airdrop by June 30? "}
+{"ts": "2026-05-21T13:20:51.793723", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-21T13:20:51.803144", "msg": "Analyzing: LoL: Dplus KIA vs HANJIN BRION (BO3) - LCK Rounds 1-2"}
+{"ts": "2026-05-21T13:20:54.759637", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-21T13:20:54.768187", "msg": "Analyzing: Will An\u017ee Logar be the next Prime Minister of Slovenia?"}
+{"ts": "2026-05-21T13:20:57.732892", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-21T13:20:57.740556", "msg": "Analyzing: LoL: Dplus KIA vs HANJIN BRION - Game 2 Winner"}
+{"ts": "2026-05-21T13:21:00.847873", "msg": "Opened paper position #8: YES on LoL: Dplus KIA vs HANJIN BRION - Game 2 Winner"}
+{"ts": "2026-05-21T13:21:00.851074", "msg": "Analyzing: LoL: Dplus KIA vs HANJIN BRION - Game 1 Winner"}
+{"ts": "2026-05-21T13:21:05.136486", "msg": "Analyzing: Counter-Strike: TheMongolz vs Liquid (BO3) - CS Asia Championships Group B"}
+{"ts": "2026-05-21T13:21:08.312120", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-21T13:21:08.318624", "msg": "Analyzing: Will Janez Jan\u0161a be the next Prime Minister of Slovenia?"}
+{"ts": "2026-05-21T13:21:11.826390", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-21T13:21:11.830938", "msg": "Analyzing: Cavaliers vs. Knicks"}
+{"ts": "2026-05-21T13:21:14.897604", "msg": "Opened paper position #9: YES on Cavaliers vs. Knicks"}
+{"ts": "2026-05-21T13:21:14.901849", "msg": "Analyzing: Will Robert Golob be the next Prime Minister of Slovenia?"}
+{"ts": "2026-05-21T13:21:18.211922", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-21T13:21:18.218159", "msg": "Analyzing: LoL: JD Gaming vs Anyone's Legend (BO5) - Esports World Cup China Qualifier Phase 2"}
+{"ts": "2026-05-21T13:21:21.234337", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-21T13:21:21.241164", "msg": "Analyzing: Will Matej Tonin be the next Prime Minister of Slovenia?"}
+{"ts": "2026-05-21T13:21:26.608704", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-21T13:21:26.614497", "msg": "Analyzing: LoL: BNK FEARX vs Hanwha Life Esports - Game 2 Winner"}
+{"ts": "2026-05-21T13:21:30.550804", "msg": "[CONFLICT] Skipping \u2014 contradicts position #8"}
+{"ts": "2026-05-21T13:21:30.553484", "msg": "\nCYCLE COMPLETE | Summary: {'total_positions': 9, 'open_positions': 3, 'total_pnl': -200.06, 'realized_pnl': -200.06, 'wins': 4}"}
+{"ts": "2026-05-21T13:31:04.222315", "msg": "Crypto scan: 18 candidates from 171 raw markets"}
+{"ts": "2026-05-21T13:31:56.134057", "msg": "============================================================"}
+{"ts": "2026-05-21T13:31:56.134691", "msg": "AGENT CYCLE START"}
+{"ts": "2026-05-21T13:31:56.134747", "msg": "============================================================"}
+{"ts": "2026-05-21T13:31:56.139533", "msg": "Checking exit opportunities for 3 open position(s)..."}
+{"ts": "2026-05-21T13:32:46.022404", "msg": "  [EXIT CHECK] #9 \u2014 could not fetch price, skipping"}
+{"ts": "2026-05-21T13:33:06.687266", "msg": "  [EXIT CHECK] #8 \u2014 could not fetch price, skipping"}
+{"ts": "2026-05-21T13:33:08.820665", "msg": "  [EXIT CHECK] #7 YES | entry=54.5% current=1.0% | chg=-98.2%"}
+{"ts": "2026-05-21T13:33:08.821516", "msg": "[EXIT] Selling position #7 \u2014 stop loss hit (-98.2%)"}
+{"ts": "2026-05-21T13:33:27.567545", "msg": "Crypto scan failed (<urlopen error _ssl.c:1011: The handshake operation timed out>), falling back to get_active_events"}
+{"ts": "2026-05-21T13:33:27.570685", "msg": "Scanning active events..."}
+{"ts": "2026-05-21T14:18:20.770895", "msg": "============================================================"}
+{"ts": "2026-05-21T14:18:20.771848", "msg": "AGENT CYCLE START"}
+{"ts": "2026-05-21T14:18:20.771899", "msg": "============================================================"}
+{"ts": "2026-05-21T14:18:20.777146", "msg": "Checking exit opportunities for 2 open position(s)..."}
+{"ts": "2026-05-21T14:18:20.777220", "msg": "  [EXIT CHECK] #9 \u2014 opened <1h ago, skipping"}
+{"ts": "2026-05-21T14:18:20.777272", "msg": "  [EXIT CHECK] #8 \u2014 opened <1h ago, skipping"}
+{"ts": "2026-05-21T14:18:24.610030", "msg": "Crypto scan: 35 candidates from 915 raw markets"}
+{"ts": "2026-05-21T14:18:24.611955", "msg": "Analyzing top 20 markets resolving within 24h, sorted by volume..."}
+{"ts": "2026-05-21T14:18:24.613573", "msg": "Analyzing: Iran closes its airspace by May 21?"}
+{"ts": "2026-05-21T14:18:28.706624", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-21T14:18:28.712303", "msg": "Analyzing: US x Iran diplomatic meeting by May 31, 2026?"}
+{"ts": "2026-05-21T14:18:31.882162", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-21T14:18:31.889284", "msg": "Analyzing: US x Iran permanent peace deal by May 22, 2026?"}
+{"ts": "2026-05-21T14:18:36.751418", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-21T14:18:36.760464", "msg": "Analyzing: Will Donald Trump announce that the United States blockade of the Strait of Hormuz has been lifted by May 22, 2026?"}
+{"ts": "2026-05-21T14:18:39.554992", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-21T14:18:39.562521", "msg": "Analyzing: US x Iran diplomatic meeting by June 30, 2026?"}
+{"ts": "2026-05-21T14:18:42.257121", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-21T14:18:42.267974", "msg": "Analyzing: Will MegaETH perform an airdrop by June 30? "}
+{"ts": "2026-05-21T14:18:45.046929", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-21T14:18:45.056988", "msg": "Analyzing: Cavaliers vs. Knicks"}
+{"ts": "2026-05-21T14:18:48.705303", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-21T14:18:48.713729", "msg": "Analyzing: Will Janez Jan\u0161a be the next Prime Minister of Slovenia?"}
+{"ts": "2026-05-21T14:18:52.074127", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-21T14:18:52.083638", "msg": "Analyzing: Dota 2: Team Falcons vs PARIVISION - Game 1 Winner"}
+{"ts": "2026-05-21T14:18:55.213298", "msg": "[CONFLICT] Skipping \u2014 contradicts position #8"}
+{"ts": "2026-05-21T14:18:55.218094", "msg": "Analyzing: Will Elon Musk post 240-259 tweets from May 15 to May 22, 2026?"}
+{"ts": "2026-05-21T14:18:58.331428", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-21T14:18:58.337659", "msg": "Analyzing: Will Elon Musk post 300-319 tweets from May 15 to May 22, 2026?"}
+{"ts": "2026-05-21T14:19:01.300831", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-21T14:19:01.310597", "msg": "Analyzing: Will Elon Musk post 260-279 tweets from May 15 to May 22, 2026?"}
+{"ts": "2026-05-21T14:19:04.228430", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-21T14:19:04.235788", "msg": "Analyzing: Will Elon Musk post 320-339 tweets from May 15 to May 22, 2026?"}
+{"ts": "2026-05-21T14:19:07.565576", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-21T14:19:07.575044", "msg": "Analyzing: Will Elon Musk post 280-299 tweets from May 15 to May 22, 2026?"}
+{"ts": "2026-05-21T14:19:10.621421", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-21T14:19:10.630173", "msg": "Analyzing: LoL: KT Rolster vs Gen.G (BO3) - LCK Rounds 1-2"}
+{"ts": "2026-05-21T14:19:13.790839", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-21T14:19:13.799195", "msg": "Analyzing: Canadiens vs. Hurricanes"}
+{"ts": "2026-05-21T14:19:18.084263", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-21T14:19:18.094145", "msg": "Analyzing: Dota 2: Team Falcons vs PARIVISION (BO3) - DreamLeague Playoffs"}
+{"ts": "2026-05-21T14:19:21.177079", "msg": "Opened paper position #10: YES on Dota 2: Team Falcons vs PARIVISION (BO3) - DreamLeague Playo"}
+{"ts": "2026-05-21T14:19:21.181195", "msg": "Analyzing: Spread: Knicks (-6.5)"}
+{"ts": "2026-05-21T14:19:24.911548", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-21T14:19:24.921848", "msg": "Analyzing: Will the price of Bitcoin be above $76,000 on May 21?"}
+{"ts": "2026-05-21T14:19:28.232232", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-21T14:19:28.242166", "msg": "Analyzing: Will Harvey Weinstein be sentenced to no prison time?"}
+{"ts": "2026-05-21T14:19:31.126568", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-21T14:19:31.129327", "msg": "\nCYCLE COMPLETE | Summary: {'total_positions': 10, 'open_positions': 3, 'total_pnl': -494.56, 'realized_pnl': -494.56, 'wins': 4}"}
+{"ts": "2026-05-21T16:18:16.388620", "msg": "============================================================"}
+{"ts": "2026-05-21T16:18:16.389537", "msg": "AGENT CYCLE START"}
+{"ts": "2026-05-21T16:18:16.389581", "msg": "============================================================"}
+{"ts": "2026-05-21T16:18:16.398224", "msg": "Checking exit opportunities for 3 open position(s)..."}
+{"ts": "2026-05-21T16:18:17.494933", "msg": "  [EXIT CHECK] #10 YES | entry=51.5% current=54.5% | chg=+5.8%"}
+{"ts": "2026-05-21T16:18:18.083105", "msg": "  [EXIT CHECK] #9 YES | entry=31.5% current=33.5% | chg=+6.3%"}
+{"ts": "2026-05-21T16:18:18.712834", "msg": "  [EXIT CHECK] #8 \u2014 price 0.0% at extreme, skipping (use settle)"}
+{"ts": "2026-05-21T16:18:22.631123", "msg": "Crypto scan: 30 candidates from 836 raw markets"}
+{"ts": "2026-05-21T16:18:22.634252", "msg": "Analyzing top 20 markets resolving within 24h, sorted by volume..."}
+{"ts": "2026-05-21T16:18:22.637269", "msg": "Analyzing: Iran closes its airspace by May 21?"}
+{"ts": "2026-05-21T16:18:26.386417", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-21T16:18:26.392209", "msg": "Analyzing: US x Iran permanent peace deal by May 22, 2026?"}
+{"ts": "2026-05-21T16:18:30.158553", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-21T16:18:30.164885", "msg": "Analyzing: US x Iran diplomatic meeting by May 31, 2026?"}
+{"ts": "2026-05-21T16:18:33.767622", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-21T16:18:33.774118", "msg": "Analyzing: US x Iran diplomatic meeting by June 30, 2026?"}
+{"ts": "2026-05-21T16:18:38.259192", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-21T16:18:38.265625", "msg": "Analyzing: Will MegaETH perform an airdrop by June 30? "}
+{"ts": "2026-05-21T16:18:41.646206", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-21T16:18:41.651358", "msg": "Analyzing: Cavaliers vs. Knicks"}
+{"ts": "2026-05-21T16:18:45.341825", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-21T16:18:45.348292", "msg": "Analyzing: Dota 2: Team Falcons vs PARIVISION (BO3) - DreamLeague Playoffs"}
+{"ts": "2026-05-21T16:18:48.441105", "msg": "Analyzing: Will Janez Jan\u0161a be the next Prime Minister of Slovenia?"}
+{"ts": "2026-05-21T16:18:51.922379", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-21T16:18:51.929312", "msg": "Analyzing: Will Elon Musk post 240-259 tweets from May 15 to May 22, 2026?"}
+{"ts": "2026-05-21T16:18:55.527745", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-21T16:18:55.533238", "msg": "Analyzing: Will Elon Musk post 300-319 tweets from May 15 to May 22, 2026?"}
+{"ts": "2026-05-21T16:19:00.311852", "msg": "Opened paper position #11: YES on Will Elon Musk post 300-319 tweets from May 15 to May 22, 20"}
+{"ts": "2026-05-21T16:19:00.313656", "msg": "Analyzing: Will Elon Musk post 320-339 tweets from May 15 to May 22, 2026?"}
+{"ts": "2026-05-21T16:19:03.437595", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-21T16:19:03.443695", "msg": "Analyzing: Will Elon Musk post 280-299 tweets from May 15 to May 22, 2026?"}
+{"ts": "2026-05-21T16:19:07.891046", "msg": "Opened paper position #12: YES on Will Elon Musk post 280-299 tweets from May 15 to May 22, 20"}
+{"ts": "2026-05-21T16:19:07.894769", "msg": "Max open positions reached \u2014 stopping analysis."}
+{"ts": "2026-05-21T16:19:07.895400", "msg": "\nCYCLE COMPLETE | Summary: {'total_positions': 12, 'open_positions': 5, 'total_pnl': -494.56, 'realized_pnl': -494.56, 'wins': 4}"}
+{"ts": "2026-05-21T16:34:43.181436", "msg": "============================================================"}
+{"ts": "2026-05-21T16:34:43.182319", "msg": "AGENT CYCLE START"}
+{"ts": "2026-05-21T16:34:43.182365", "msg": "============================================================"}
+{"ts": "2026-05-21T16:34:43.187694", "msg": "Checking exit opportunities for 5 open position(s)..."}
+{"ts": "2026-05-21T16:34:43.187751", "msg": "  [EXIT CHECK] #12 \u2014 opened <1h ago, skipping"}
+{"ts": "2026-05-21T16:34:43.187796", "msg": "  [EXIT CHECK] #11 \u2014 opened <1h ago, skipping"}
+{"ts": "2026-05-21T16:34:44.297094", "msg": "  [EXIT CHECK] #10 YES | entry=51.5% current=65.5% | chg=+27.2%"}
+{"ts": "2026-05-21T16:34:44.297856", "msg": "[EXIT] Selling position #10 \u2014 profit target hit (+27.2%)"}
+{"ts": "2026-05-21T16:34:44.991826", "msg": "  [EXIT CHECK] #9 YES | entry=31.5% current=33.5% | chg=+6.3%"}
+{"ts": "2026-05-21T16:34:45.564414", "msg": "  [EXIT CHECK] #8 \u2014 price 0.0% at extreme, skipping (use settle)"}
+{"ts": "2026-05-21T16:34:49.582947", "msg": "Crypto scan: 28 candidates from 837 raw markets"}
+{"ts": "2026-05-21T16:34:49.585601", "msg": "Analyzing top 20 markets resolving within 24h, sorted by volume..."}
+{"ts": "2026-05-21T16:34:49.588113", "msg": "Analyzing: US x Iran permanent peace deal by May 22, 2026?"}
+{"ts": "2026-05-21T16:34:52.925152", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-21T16:34:52.930174", "msg": "Analyzing: US x Iran diplomatic meeting by May 31, 2026?"}
+{"ts": "2026-05-21T16:34:56.194801", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-21T16:34:56.201008", "msg": "Analyzing: US x Iran diplomatic meeting by June 30, 2026?"}
+{"ts": "2026-05-21T16:34:59.123476", "msg": "Analyzing: Will MegaETH perform an airdrop by June 30? "}
+{"ts": "2026-05-21T16:37:20.521423", "msg": "============================================================"}
+{"ts": "2026-05-21T16:37:20.522313", "msg": "AGENT CYCLE START"}
+{"ts": "2026-05-21T16:37:20.522362", "msg": "============================================================"}
+{"ts": "2026-05-21T16:37:20.528407", "msg": "Checking exit opportunities for 4 open position(s)..."}
+{"ts": "2026-05-21T16:37:20.528462", "msg": "  [EXIT CHECK] #12 \u2014 opened <1h ago, skipping"}
+{"ts": "2026-05-21T16:37:20.528498", "msg": "  [EXIT CHECK] #11 \u2014 opened <1h ago, skipping"}
+{"ts": "2026-05-21T16:37:21.373126", "msg": "  [EXIT CHECK] #9 YES | entry=31.5% current=33.5% | chg=+6.3%"}
+{"ts": "2026-05-21T16:37:22.246518", "msg": "  [EXIT CHECK] #8 \u2014 price 0.0% at extreme, skipping (use settle)"}
+{"ts": "2026-05-21T16:37:26.678537", "msg": "Crypto scan: 29 candidates from 816 raw markets"}
+{"ts": "2026-05-21T16:37:26.681568", "msg": "Analyzing top 20 markets resolving within 24h, sorted by volume..."}
+{"ts": "2026-05-21T16:37:26.685387", "msg": "Analyzing: US x Iran permanent peace deal by May 22, 2026?"}
+{"ts": "2026-05-21T16:37:29.677634", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-21T16:37:29.683893", "msg": "Analyzing: US x Iran diplomatic meeting by May 31, 2026?"}
+{"ts": "2026-05-21T16:37:32.953074", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-21T16:37:32.959702", "msg": "Analyzing: US x Iran diplomatic meeting by June 30, 2026?"}
+{"ts": "2026-05-21T16:37:35.960864", "msg": "Analyzing: Will MegaETH perform an airdrop by June 30? "}
+{"ts": "2026-05-21T16:37:38.914024", "msg": "[SKIP] Already traded this market \u2014 Will MegaETH perform an airdrop by June 30? "}
+{"ts": "2026-05-21T16:37:38.917010", "msg": "Analyzing: Cavaliers vs. Knicks"}
+{"ts": "2026-05-21T16:37:41.809355", "msg": "[SKIP] Already traded this market \u2014 Cavaliers vs. Knicks"}
+{"ts": "2026-05-21T16:37:41.813877", "msg": "Analyzing: Dota 2: Team Falcons vs PARIVISION (BO3) - DreamLeague Playoffs"}
+{"ts": "2026-05-21T16:37:44.771499", "msg": "[SKIP] Already traded this market \u2014 Dota 2: Team Falcons vs PARIVISION (BO3) - DreamLeague Playo"}
+{"ts": "2026-05-21T16:37:44.776234", "msg": "Analyzing: Will Janez Jan\u0161a be the next Prime Minister of Slovenia?"}
+{"ts": "2026-05-21T16:37:49.620443", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-21T16:37:49.626462", "msg": "Analyzing: Will Elon Musk post 240-259 tweets from May 15 to May 22, 2026?"}
+{"ts": "2026-05-21T16:37:52.816664", "msg": "[CONFLICT] Skipping \u2014 contradicts position #12"}
+{"ts": "2026-05-21T16:37:52.822311", "msg": "Analyzing: Will Elon Musk post 300-319 tweets from May 15 to May 22, 2026?"}
+{"ts": "2026-05-21T16:37:55.977341", "msg": "[CONFLICT] Skipping \u2014 contradicts position #12"}
+{"ts": "2026-05-21T16:37:55.981253", "msg": "Analyzing: Will Elon Musk post 320-339 tweets from May 15 to May 22, 2026?"}
+{"ts": "2026-05-21T16:37:59.925408", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-21T16:37:59.931879", "msg": "Analyzing: Will Elon Musk post 280-299 tweets from May 15 to May 22, 2026?"}
+{"ts": "2026-05-21T16:38:03.412958", "msg": "[CONFLICT] Skipping \u2014 contradicts position #11"}
+{"ts": "2026-05-21T16:38:03.417314", "msg": "Analyzing: Will Elon Musk post 260-279 tweets from May 15 to May 22, 2026?"}
+{"ts": "2026-05-21T16:38:07.503196", "msg": "[CONFLICT] Skipping \u2014 contradicts position #12"}
+{"ts": "2026-05-21T16:38:07.507485", "msg": "Analyzing: LoL: KT Rolster vs Gen.G (BO3) - LCK Rounds 1-2"}
+{"ts": "2026-05-21T16:38:11.144802", "msg": "[CONFLICT] Skipping \u2014 contradicts position #8"}
+{"ts": "2026-05-21T16:38:11.149387", "msg": "Analyzing: Canadiens vs. Hurricanes"}
+{"ts": "2026-05-21T16:38:14.402521", "msg": "Opened paper position #13: YES on Canadiens vs. Hurricanes"}
+{"ts": "2026-05-21T16:38:14.406270", "msg": "Max open positions reached \u2014 stopping analysis."}
+{"ts": "2026-05-21T16:38:14.406920", "msg": "\nCYCLE COMPLETE | Summary: {'total_positions': 13, 'open_positions': 5, 'total_pnl': -413.01, 'realized_pnl': -413.01, 'wins': 5}"}
+{"ts": "2026-05-21T16:40:08.662146", "msg": "Checking settlement for 5 open position(s)..."}
+{"ts": "2026-05-21T16:40:09.276987", "msg": "  [SETTLE] #13 \u2014 still open, skipping"}
+{"ts": "2026-05-21T16:40:09.911167", "msg": "  [SETTLE] #12 \u2014 still open, skipping"}
+{"ts": "2026-05-21T16:40:10.449073", "msg": "  [SETTLE] #11 \u2014 still open, skipping"}
+{"ts": "2026-05-21T16:40:11.026766", "msg": "  [SETTLE] #9 \u2014 still open, skipping"}
+{"ts": "2026-05-21T16:40:11.527122", "msg": "[SETTLED] Position #8 \u2014 LOST -$300.00 | LoL: Dplus KIA vs HANJIN BRION - Game 2 Winner"}

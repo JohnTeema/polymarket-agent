@@ -3,20 +3,21 @@ Thin wrapper over the Gamma + CLOB + Data APIs.
 Read-only, no auth needed.
 """
 import json
-import urllib.request
 import urllib.parse
-import urllib.error
+import requests
 from typing import Any
 
 GAMMA = "https://gamma-api.polymarket.com"
 CLOB = "https://clob.polymarket.com"
 DATA = "https://data-api.polymarket.com"
 
+_HEADERS = {"User-Agent": "polymarket-agent/0.1"}
+
 
 def _get(url: str) -> Any:
-    req = urllib.request.Request(url, headers={"User-Agent": "polymarket-agent/0.1"})
-    with urllib.request.urlopen(req, timeout=15) as resp:
-        return json.loads(resp.read().decode())
+    resp = requests.get(url, headers=_HEADERS, timeout=15)
+    resp.raise_for_status()
+    return resp.json()
 
 
 def search_markets(query: str, limit: int = 20) -> list[dict]:
@@ -27,9 +28,63 @@ def search_markets(query: str, limit: int = 20) -> list[dict]:
 
 def get_active_events(limit: int = 200) -> list[dict]:
     """Get active (open) events sorted by volume. Single source of truth."""
-    return _get(
-        f"{GAMMA}/events?limit={limit}&active=true&closed=false&order=volume&ascending=false"
-    )
+    try:
+        return _get(
+            f"{GAMMA}/events?limit={limit}&active=true&closed=false&order=volume&ascending=false"
+        )
+    except Exception as e:
+        print(f"  [get_active_events] failed: {e}")
+        return []
+
+
+_DAILY_KEYWORDS = {"up or down", "hourly", "daily"}
+
+def get_crypto_daily_markets(limit: int = 200) -> list[dict]:
+    """
+    Two-call approach to find short-term crypto price markets:
+    1. Crypto events endpoint (tag=crypto, by 24hr volume) — extracts nested markets
+    2. All markets endpoint (high volume) — keyword filtered for daily price questions
+    Combines and deduplicates by market ID. Returns flat market list.
+    """
+    # Call 1: crypto-tagged events, extract their nested markets
+    from_events: list[dict] = []
+    try:
+        events = _get(
+            f"{GAMMA}/events?tag=crypto&active=true&closed=false&limit=50&order=volume24hr&ascending=false"
+        )
+        for evt in events:
+            for m in evt.get("markets", []):
+                if m.get("active") and not m.get("closed"):
+                    from_events.append(m)
+    except Exception as e:
+        print(f"  [crypto_daily] events call failed: {e}")
+
+    # Call 2: all high-volume markets, keyword filtered
+    from_search: list[dict] = []
+    try:
+        all_markets = _get(
+            f"{GAMMA}/markets?active=true&closed=false&limit={limit}&order=volume24hr&ascending=false"
+        )
+        for m in all_markets:
+            q = m.get("question", "").lower()
+            if any(kw in q for kw in _DAILY_KEYWORDS):
+                from_search.append(m)
+    except Exception as e:
+        print(f"  [crypto_daily] markets call failed: {e}")
+
+    # Combine and deduplicate by ID
+    seen: set = set()
+    combined: list[dict] = []
+    for m in from_events + from_search:
+        mid = m.get("id")
+        if mid and mid not in seen:
+            seen.add(mid)
+            combined.append(m)
+
+    print(f"  [crypto_daily] events={len(from_events)} keyword={len(from_search)} combined={len(combined)} unique")
+    for m in combined[:5]:
+        print(f"  [crypto_daily]   · {m.get('question', '?')}")
+    return combined
 
 
 def get_daily_crypto_markets(limit: int = 100) -> list[dict]:
@@ -70,6 +125,16 @@ def get_market(slug: str) -> dict | None:
     """Get a single market by slug."""
     markets = _get(f"{GAMMA}/markets?slug={urllib.parse.quote(slug)}")
     return markets[0] if markets else None
+
+
+def get_market_by_id(market_id: str) -> dict | None:
+    """Get a single market by its ID."""
+    result = _get(f"{GAMMA}/markets/{market_id}")
+    if isinstance(result, dict):
+        return result
+    if isinstance(result, list) and result:
+        return result[0]
+    return None
 
 
 def get_price(token_id: str, side: str = "buy") -> dict:

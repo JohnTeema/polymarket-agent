@@ -168,12 +168,13 @@ def _classify_evt(evt) -> str | None:
 def filter_candidate_markets(events: list[dict], min_volume: float = 50_000) -> list[tuple[dict, str]]:
     """
     Return [(market, mm_type)] sorted by volume descending, for active non-closed
-    markets in crypto/sports with volume ≥ min_volume that resolve within 24 hours.
+    markets in crypto/sports with volume ≥ min_volume that resolve within 48 hours.
+    Excludes markets with Yes price below 2% or above 98% (effectively decided).
     """
     candidates = []
     seen_slugs = set()
     now = datetime.now(timezone.utc)
-    cutoff = now + timedelta(hours=24)
+    cutoff = now + timedelta(hours=48)
 
     for evt in events:
         mm_type = _classify_evt(evt)
@@ -199,6 +200,9 @@ def filter_candidate_markets(events: list[dict], min_volume: float = 50_000) -> 
             except ValueError:
                 continue
             if end_dt > cutoff:
+                continue
+            yes_price = fm.get("yes_price")
+            if yes_price is None or yes_price < 0.02 or yes_price > 0.98:
                 continue
             seen_slugs.add(slug)
             candidates.append((m, mm_type))
@@ -232,9 +236,16 @@ def build_market_context(market: dict, mm_type: str = "crypto") -> str:
 
     ob = ""
     if orderbook.get("bids"):
-        bid  = orderbook["bids"][0]["price"]
-        ask  = orderbook["asks"][0]["price"] if orderbook.get("asks") else "?"
-        ob   = f"Orderbook top: bid={_fmt_pct(float(bid))}  ask={_fmt_pct(float(ask))}"
+        try:
+            bid = float(orderbook["bids"][0]["price"])
+        except (ValueError, TypeError):
+            bid = 0.0
+        try:
+            ask = float(orderbook["asks"][0]["price"]) if orderbook.get("asks") else 0.0
+        except (ValueError, TypeError):
+            ask = 0.0
+        if not (bid < 0.02 and ask > 0.98):
+            ob = f"Orderbook top: bid={_fmt_pct(bid)}  ask={_fmt_pct(ask)}"
 
     end = (fm["end_date"] or "")[:10]
     return f"""
@@ -272,12 +283,7 @@ def make_trading_decision(market: dict, mm_type: str) -> dict | None:
     fm = format_market(market)
     context = build_market_context(market, mm_type=mm_type)
     live_context = get_live_context(fm["question"], mm_type=mm_type)
-    type_hint = "DOMAIN: Crypto — use price levels, funding, macro, on-chain flows" \
-        if mm_type == "crypto" else \
-        "DOMAIN: Sports — use team form, injuries, matchups, schedule, rest"
-
-    prompt = f"""You are a sharp prediction market trader.
-{type_hint}
+    prompt = f"""You are a prediction market trader. You have knowledge about sports (NBA, NHL, NFL, MLB, soccer, F1, tennis), crypto markets, politics, esports, and general events. Use ALL your knowledge to find edge in any market type. Don't restrict yourself to one domain.
 
 {context}
 
@@ -294,6 +300,7 @@ KNOWLEDGE RULES:
 4. Look for specific edges: is a spread too wide for a team's actual form? Is an over/under
    ignoring a team's pace or scoring trends? Is a heavy favourite being underpriced?
 5. If the market price is 0.55 but you assign 0.65 true probability → that gap IS your edge. Trade it.
+6. NEVER trade a market priced below 1% or above 99% — these are resolved or have no liquidity. action must be "pass".
 
 TASK:
 1. Is this a tradeable opportunity with a real edge versus the crowd?
