@@ -659,3 +659,26 @@
 {"ts": "2026-05-21T16:59:29.627041", "msg": "Opened paper position #14: YES on LoL: KT Rolster vs Gen.G (BO3) - LCK Rounds 1-2"}
 {"ts": "2026-05-21T16:59:29.630049", "msg": "Max open positions reached \u2014 stopping analysis."}
 {"ts": "2026-05-21T16:59:29.630660", "msg": "\nCYCLE COMPLETE | Summary: {'total_positions': 14, 'open_positions': 5, 'total_pnl': -713.01, 'realized_pnl': -713.01, 'wins': 5}"}
+{"ts": "2026-05-23T09:16:43.964956", "msg": "Checking settlement for 5 open position(s)..."}
+{"ts": "2026-05-23T09:16:44.771061", "msg": "[SETTLED] Position #14 \u2014 LOST -$300.00 | LoL: KT Rolster vs Gen.G (BO3) - LCK Rounds 1-2"}
+{"ts": "2026-05-23T09:16:45.424296", "msg": "[SETTLED] Position #13 \u2014 WON +$193.50 | Canadiens vs. Hurricanes"}
+{"ts": "2026-05-23T09:16:46.083212", "msg": "[SETTLED] Position #12 \u2014 WON +$196.65 | Will Elon Musk post 280-299 tweets from May 15 to May 22, 20"}
+{"ts": "2026-05-23T09:16:46.625445", "msg": "[SETTLED] Position #11 \u2014 LOST -$300.00 | Will Elon Musk post 300-319 tweets from May 15 to May 22, 20"}
+{"ts": "2026-05-23T09:16:47.216071", "msg": "[SETTLED] Position #9 \u2014 LOST -$300.00 | Cavaliers vs. Knicks"}
+{"ts": "2026-05-23T09:40:10.720354", "msg": "Crypto scan: 7 candidates from 793 raw markets"}
+{"ts": "2026-05-23T09:43:45.324538", "msg": "============================================================"}
+{"ts": "2026-05-23T09:43:45.340005", "msg": "AGENT CYCLE START"}
+{"ts": "2026-05-23T09:43:45.340334", "msg": "============================================================"}
+{"ts": "2026-05-23T09:43:51.760877", "msg": "Crypto scan: 7 candidates from 793 raw markets"}
+{"ts": "2026-05-23T09:43:52.624777", "msg": "Analyzing top 7 markets resolving within 24h, sorted by volume..."}
+{"ts": "2026-05-23T09:43:52.765701", "msg": "Analyzing: Will the price of Bitcoin be above $74,000 on May 23?"}
+{"ts": "2026-05-23T09:43:58.498296", "msg": "Analyzing: Will the price of Bitcoin be above $76,000 on May 23?"}
+{"ts": "2026-05-23T09:44:06.704004", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-23T09:44:07.700720", "msg": "Analyzing: Will the price of Bitcoin be above $74,000 on May 24?"}
+{"ts": "2026-05-23T09:44:13.777766", "msg": "Analyzing: Will the price of Ethereum be above $2,000 on May 23?"}
+{"ts": "2026-05-23T09:44:20.393486", "msg": "Analyzing: Will the price of Bitcoin be above $72,000 on May 24?"}
+{"ts": "2026-05-23T09:44:26.144786", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-23T09:44:26.152424", "msg": "Analyzing: Will the price of Bitcoin be above $76,000 on May 24?"}
+{"ts": "2026-05-23T09:44:37.408786", "msg": "Opened paper position #15: YES on Will the price of Bitcoin be above $76,000 on May 24?"}
+{"ts": "2026-05-23T09:44:37.413315", "msg": "Analyzing: Will MegaETH perform an airdrop by June 30? "}
+{"ts": "2026-05-23T09:44:42.262078", "msg": "\nCYCLE COMPLETE | Summary: {'total_positions': 15, 'open_positions': 1, 'total_pnl': -1222.86, 'realized_pnl': -1222.86, 'wins': 7}"}

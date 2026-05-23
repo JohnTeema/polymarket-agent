@@ -3,11 +3,14 @@ Trading strategies for crypto and sports markets on Polymarket.
 Uses event tags (from Gamma API) to filter, then LLM for decision.
 """
 import json
+import logging
 import requests
 import os
 import yaml
 from datetime import datetime, timezone, timedelta
 from pathlib import Path
+
+logger = logging.getLogger(__name__)
 
 from engine.polymarket_client import (
     format_market, get_market, get_orderbook,
@@ -88,10 +91,35 @@ def get_live_context(question: str, mm_type: str = "sports") -> str:
         "stat, omit it rather than guessing."
     )
 
+    q_lower = question.lower()
+
+    _crypto_price_keywords = ("bitcoin", "btc", "ethereum", "eth", "price of")
     if mm_type != "sports":
+        if any(kw in q_lower for kw in _crypto_price_keywords):
+            try:
+                resp = requests.get(
+                    "https://api.coingecko.com/api/v3/simple/price",
+                    params={"ids": "bitcoin,ethereum,solana", "vs_currencies": "usd"},
+                    timeout=5,
+                )
+                if resp.status_code == 200:
+                    data = resp.json()
+                    parts = []
+                    if "bitcoin" in data:
+                        parts.append(f"Bitcoin = ${data['bitcoin']['usd']:,.0f}")
+                    if "ethereum" in data:
+                        parts.append(f"Ethereum = ${data['ethereum']['usd']:,.0f}")
+                    if "solana" in data:
+                        parts.append(f"Solana = ${data['solana']['usd']:,.0f}")
+                    if parts:
+                        lines.append("LIVE PRICE: " + " | ".join(parts))
+                else:
+                    lines.append(f"(CoinGecko API returned {resp.status_code})")
+            except Exception as e:
+                lines.append(f"(Live crypto price unavailable: {e})")
         return "\n".join(lines)
 
-    q_lower = question.lower()
+
     matched = [alias for alias in _NBA_TEAMS if alias in q_lower]
 
     if not matched:
@@ -203,6 +231,14 @@ def filter_candidate_markets(events: list[dict], min_volume: float = 50_000) -> 
                 continue
             yes_price = fm.get("yes_price")
             if yes_price is None or yes_price < 0.02 or yes_price > 0.98:
+                continue
+            question = (m.get("question") or "").lower()
+            crypto_keywords = [
+                "bitcoin", "btc", "ethereum", "eth", "solana", "sol",
+                "crypto", "xrp", "dogecoin", "doge", "price of", "up or down",
+            ]
+            if not any(kw in question for kw in crypto_keywords):
+                logger.info("[FILTER] Skipping non-crypto market: %s", m.get("question", ""))
                 continue
             seen_slugs.add(slug)
             candidates.append((m, mm_type))
