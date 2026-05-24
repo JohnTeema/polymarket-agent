@@ -316,7 +316,7 @@ ANALYSIS GUIDE:
 
 
 # ── Decision engine ──────────────────────────────────────────
-def make_trading_decision(market: dict, mm_type: str) -> dict | None:
+def make_trading_decision(market: dict, mm_type: str, signal_context: str = "") -> dict | None:
     """
     Analyze a market and return a structured decision dict:
     {action, confidence, market_price, edge, rationale, risk}
@@ -352,7 +352,7 @@ KNOWLEDGE RULES:
 5. If the market price is 0.55 but you assign 0.65 true probability → that gap IS your edge. Trade it.
 6. NEVER trade a market priced below 1% or above 99% — these are resolved or have no liquidity. action must be "pass".
 
-TASK:
+{f"MARKET SIGNALS (recent price movements — use as momentum context):{chr(10)}{signal_context}{chr(10)}" if signal_context else ""}TASK:
 1. Is this a tradeable opportunity with a real edge versus the crowd?
 2. Use your knowledge of the teams, players, and context to form a concrete opinion.
 3. Risk: "low" = narrow edge, high confidence | "medium" = moderate gap | "high" = large gap

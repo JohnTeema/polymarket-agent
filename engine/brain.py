@@ -17,6 +17,7 @@ from engine.polymarket_client import (
     get_market_by_id,
 )
 from engine.strategies import make_trading_decision, load_config, filter_candidate_markets
+from engine.signal_tracker import save_snapshot, get_big_movers, get_signal_summary
 
 
 AGENT_LOG = Path(__file__).parent.parent / "data" / "agent_log.jsonl"
@@ -280,10 +281,10 @@ def _conflicts_with_existing(new_q: str, new_outcome: str, open_positions: list)
     return False, None
 
 
-def run_single_trade(market_like: dict, mm_type: str = "crypto"):
+def run_single_trade(market_like: dict, mm_type: str = "crypto", signal_context: str = ""):
     """Run analysis on a single market and execute if decision says trade."""
     log(f"Analyzing: {market_like.get('question', market_like.get('slug', 'unknown'))}")
-    decision = make_trading_decision(market_like, mm_type)
+    decision = make_trading_decision(market_like, mm_type, signal_context=signal_context)
     if not decision:
         log("No decision returned")
         return
@@ -396,6 +397,16 @@ def run_full_cycle(scan_only: bool = False):
 
     candidates = sorted(candidates, key=_priority)
 
+    # Snapshot prices and surface big movers
+    save_snapshot([m for m, _ in candidates])
+    movers = get_big_movers()
+    if movers:
+        log(f"[SIGNALS] {len(movers)} big mover(s) detected:")
+        for mv in movers:
+            arrow = "↑" if mv["direction"] == "up" else "↓"
+            log(f"  {mv['question'][:60]}  {mv['old_price']*100:.0f}% → {mv['new_price']*100:.0f}% {arrow}")
+    signal_summary = get_signal_summary()
+
     cfg = load_config()
     max_to_analyze = cfg.get("scan_limit", 20)
     to_analyze = candidates[:max_to_analyze]
@@ -408,7 +419,7 @@ def run_full_cycle(scan_only: bool = False):
         if len(open_pos) >= cfg.get("max_open_positions", 5):
             log("Max open positions reached — stopping analysis.")
             break
-        run_single_trade(m, mm_type)
+        run_single_trade(m, mm_type, signal_context=signal_summary)
 
     log(f"\nCYCLE COMPLETE | Summary: {get_summary()}")
 

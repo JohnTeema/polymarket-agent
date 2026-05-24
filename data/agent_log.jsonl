@@ -884,3 +884,131 @@
 {"ts": "2026-05-24T01:58:36.484498", "msg": "Analyzing: Will Arsenal win the 2025\u201326 Champions League?"}
 {"ts": "2026-05-24T01:58:49.621986", "msg": "Decision: PASS \u2014 no edge found"}
 {"ts": "2026-05-24T01:58:49.625796", "msg": "\nCYCLE COMPLETE | Summary: {'total_positions': 17, 'open_positions': 1, 'total_pnl': 631.3, 'realized_pnl': 631.3, 'wins': 8}"}
+{"ts": "2026-05-24T14:15:28.727505", "msg": "Checking settlement for 1 open position(s)..."}
+{"ts": "2026-05-24T14:15:30.015106", "msg": "[SETTLED] Position #17 \u2014 LOST -$300.00 | Will Bitcoin reach $78,000 on May 23?"}
+{"ts": "2026-05-24T14:16:12.724045", "msg": "============================================================"}
+{"ts": "2026-05-24T14:16:12.724863", "msg": "AGENT CYCLE START"}
+{"ts": "2026-05-24T14:16:12.724919", "msg": "============================================================"}
+{"ts": "2026-05-24T14:16:27.641352", "msg": "Crypto scan: 9 candidates from 826 raw markets"}
+{"ts": "2026-05-24T14:16:27.642277", "msg": "Scanning active events..."}
+{"ts": "2026-05-24T14:16:33.698392", "msg": "Found 2 candidate markets (min vol $50K)"}
+{"ts": "2026-05-24T14:16:33.700277", "msg": "Combined: 11 total candidates (crypto + football)"}
+{"ts": "2026-05-24T14:16:33.701761", "msg": "Analyzing top 11 markets resolving within 24h, sorted by volume..."}
+{"ts": "2026-05-24T14:16:33.703575", "msg": "Analyzing: Indian Premier League: Mumbai Indians vs Rajasthan Royals"}
+{"ts": "2026-05-24T14:16:54.843392", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-24T14:16:54.851685", "msg": "Analyzing: Will MegaETH perform an airdrop by June 30? "}
+{"ts": "2026-05-24T14:17:12.412368", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-24T14:17:12.422510", "msg": "Analyzing: Will Liverpool FC win on 2026-05-24?"}
+{"ts": "2026-05-24T14:17:27.490019", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-24T14:17:27.500563", "msg": "Analyzing: Will Arsenal FC win on 2026-05-24?"}
+{"ts": "2026-05-24T14:17:42.837134", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-24T14:17:42.847606", "msg": "Analyzing: Will Juventus FC win on 2026-05-24?"}
+{"ts": "2026-05-24T14:18:01.721732", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-24T14:18:01.729387", "msg": "Analyzing: Will Manchester United FC win on 2026-05-24?"}
+{"ts": "2026-05-24T14:18:15.971155", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-24T14:18:15.980513", "msg": "Analyzing: Will Tottenham Hotspur FC win on 2026-05-24?"}
+{"ts": "2026-05-24T14:18:30.686466", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-24T14:18:30.698738", "msg": "Analyzing: Will Manchester City FC win on 2026-05-24?"}
+{"ts": "2026-05-24T14:18:45.424210", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-24T14:18:45.433806", "msg": "Analyzing: Will Manchester City FC vs. Aston Villa FC end in a draw?"}
+{"ts": "2026-05-24T14:19:01.484886", "msg": "Opened paper position #18: YES on Will Manchester City FC vs. Aston Villa FC end in a draw?"}
+{"ts": "2026-05-24T14:19:01.489294", "msg": "Analyzing: Will PSG win the 2025\u201326 Champions League?"}
+{"ts": "2026-05-24T14:19:16.470699", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-24T14:19:16.484450", "msg": "Analyzing: Will Arsenal win the 2025\u201326 Champions League?"}
+{"ts": "2026-05-24T14:19:34.576226", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-24T14:19:34.581347", "msg": "\nCYCLE COMPLETE | Summary: {'total_positions': 18, 'open_positions': 1, 'total_pnl': 331.3, 'realized_pnl': 331.3, 'wins': 8}"}
+{"ts": "2026-05-24T14:40:12.526833", "msg": "============================================================"}
+{"ts": "2026-05-24T14:40:12.527835", "msg": "AGENT CYCLE START"}
+{"ts": "2026-05-24T14:40:12.527883", "msg": "============================================================"}
+{"ts": "2026-05-24T14:40:12.532364", "msg": "Checking exit opportunities for 1 open position(s)..."}
+{"ts": "2026-05-24T14:40:12.532410", "msg": "  [EXIT CHECK] #18 \u2014 opened <1h ago, skipping"}
+{"ts": "2026-05-24T14:40:22.173050", "msg": "Crypto scan: 9 candidates from 791 raw markets"}
+{"ts": "2026-05-24T14:40:22.173213", "msg": "Scanning active events..."}
+{"ts": "2026-05-24T14:40:26.073980", "msg": "Found 2 candidate markets (min vol $50K)"}
+{"ts": "2026-05-24T14:40:26.075947", "msg": "Combined: 11 total candidates (crypto + football)"}
+{"ts": "2026-05-24T14:40:26.077305", "msg": "Analyzing top 11 markets resolving within 24h, sorted by volume..."}
+{"ts": "2026-05-24T14:40:26.079058", "msg": "Analyzing: Will the price of Bitcoin be above $76,000 on May 24?"}
+{"ts": "2026-05-24T14:40:41.340410", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-24T14:40:41.347782", "msg": "Analyzing: Will Arsenal FC win on 2026-05-24?"}
+{"ts": "2026-05-24T14:40:54.566751", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-24T14:40:54.573398", "msg": "Analyzing: Will Liverpool FC win on 2026-05-24?"}
+{"ts": "2026-05-24T14:41:08.344460", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-24T14:41:08.351568", "msg": "Analyzing: Will Juventus FC win on 2026-05-24?"}
+{"ts": "2026-05-24T14:41:21.860702", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-24T14:41:21.867755", "msg": "Analyzing: Will Manchester United FC win on 2026-05-24?"}
+{"ts": "2026-05-24T14:41:35.297114", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-24T14:41:35.304641", "msg": "Analyzing: Will Tottenham Hotspur FC win on 2026-05-24?"}
+{"ts": "2026-05-24T14:41:48.636956", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-24T14:41:48.641868", "msg": "Analyzing: Will Manchester City FC win on 2026-05-24?"}
+{"ts": "2026-05-24T14:42:02.269179", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-24T14:42:02.274970", "msg": "Analyzing: Will Manchester City FC vs. Aston Villa FC end in a draw?"}
+{"ts": "2026-05-24T14:42:15.841269", "msg": "[SKIP] Already traded this market \u2014 Will Manchester City FC vs. Aston Villa FC end in a draw?"}
+{"ts": "2026-05-24T14:42:15.844329", "msg": "Analyzing: Will Crystal Palace FC vs. Arsenal FC end in a draw?"}
+{"ts": "2026-05-24T14:42:29.130668", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-24T14:42:29.136570", "msg": "Analyzing: Will PSG win the 2025\u201326 Champions League?"}
+{"ts": "2026-05-24T14:42:42.306262", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-24T14:42:42.311886", "msg": "Analyzing: Will Arsenal win the 2025\u201326 Champions League?"}
+{"ts": "2026-05-24T14:42:55.537246", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-24T14:42:55.540102", "msg": "\nCYCLE COMPLETE | Summary: {'total_positions': 18, 'open_positions': 1, 'total_pnl': 331.3, 'realized_pnl': 331.3, 'wins': 8}"}
+{"ts": "2026-05-24T14:48:41.267926", "msg": "============================================================"}
+{"ts": "2026-05-24T14:48:41.268598", "msg": "AGENT CYCLE START"}
+{"ts": "2026-05-24T14:48:41.268678", "msg": "============================================================"}
+{"ts": "2026-05-24T14:48:41.273605", "msg": "Checking exit opportunities for 1 open position(s)..."}
+{"ts": "2026-05-24T14:48:41.273658", "msg": "  [EXIT CHECK] #18 \u2014 opened <1h ago, skipping"}
+{"ts": "2026-05-24T14:48:48.028087", "msg": "Crypto scan: 10 candidates from 791 raw markets"}
+{"ts": "2026-05-24T14:48:48.028293", "msg": "Scanning active events..."}
+{"ts": "2026-05-24T14:48:49.857693", "msg": "Found 2 candidate markets (min vol $50K)"}
+{"ts": "2026-05-24T14:48:49.859522", "msg": "Combined: 12 total candidates (crypto + football)"}
+{"ts": "2026-05-24T14:48:49.860948", "msg": "Analyzing top 12 markets resolving within 24h, sorted by volume..."}
+{"ts": "2026-05-24T14:48:49.862593", "msg": "Analyzing: Will the price of Bitcoin be above $76,000 on May 24?"}
+{"ts": "2026-05-24T14:48:53.898141", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-24T14:48:53.904309", "msg": "Analyzing: Will Arsenal FC win on 2026-05-24?"}
+{"ts": "2026-05-24T14:48:56.422055", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-24T14:48:56.427659", "msg": "Analyzing: Will Liverpool FC win on 2026-05-24?"}
+{"ts": "2026-05-24T14:48:59.188509", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-24T14:48:59.194768", "msg": "Analyzing: Will Juventus FC win on 2026-05-24?"}
+{"ts": "2026-05-24T14:49:02.478004", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-24T14:49:02.483173", "msg": "Analyzing: Will Manchester United FC win on 2026-05-24?"}
+{"ts": "2026-05-24T14:49:05.438778", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-24T14:49:05.444940", "msg": "Analyzing: Will Tottenham Hotspur FC win on 2026-05-24?"}
+{"ts": "2026-05-24T14:49:08.258187", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-24T14:49:08.263241", "msg": "Analyzing: Will Manchester City FC win on 2026-05-24?"}
+{"ts": "2026-05-24T14:49:11.337815", "msg": "Opened paper position #19: YES on Will Manchester City FC win on 2026-05-24?"}
+{"ts": "2026-05-24T14:49:11.341643", "msg": "Analyzing: Will Manchester City FC vs. Aston Villa FC end in a draw?"}
+{"ts": "2026-05-24T14:49:14.252544", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-24T14:49:14.259592", "msg": "Analyzing: Will Brighton & Hove Albion FC vs. Manchester United FC end in a draw?"}
+{"ts": "2026-05-24T14:49:17.249520", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-24T14:49:17.254948", "msg": "Analyzing: Will Crystal Palace FC vs. Arsenal FC end in a draw?"}
+{"ts": "2026-05-24T14:49:20.302395", "msg": "[CONFLICT] Skipping \u2014 contradicts position #18"}
+{"ts": "2026-05-24T14:49:20.307121", "msg": "Analyzing: Will PSG win the 2025\u201326 Champions League?"}
+{"ts": "2026-05-24T14:49:23.279469", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-24T14:49:23.286618", "msg": "Analyzing: Will Arsenal win the 2025\u201326 Champions League?"}
+{"ts": "2026-05-24T14:49:26.277225", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-24T14:49:26.278817", "msg": "\nCYCLE COMPLETE | Summary: {'total_positions': 19, 'open_positions': 2, 'total_pnl': 331.3, 'realized_pnl': 331.3, 'wins': 8}"}
+{"ts": "2026-05-24T21:16:53.029682", "msg": "Checking settlement for 1 open position(s)..."}
+{"ts": "2026-05-24T21:16:53.825298", "msg": "[SETTLED] Position #19 \u2014 LOST -$300.00 | Will Manchester City FC win on 2026-05-24?"}
+{"ts": "2026-05-24T21:16:54.124930", "msg": "============================================================"}
+{"ts": "2026-05-24T21:16:54.125176", "msg": "AGENT CYCLE START"}
+{"ts": "2026-05-24T21:16:54.125227", "msg": "============================================================"}
+{"ts": "2026-05-24T21:17:02.175133", "msg": "Crypto scan: 4 candidates from 864 raw markets"}
+{"ts": "2026-05-24T21:17:02.175388", "msg": "Scanning active events..."}
+{"ts": "2026-05-24T21:17:03.876032", "msg": "Found 4 candidate markets (min vol $50K)"}
+{"ts": "2026-05-24T21:17:03.878522", "msg": "Combined: 6 total candidates (crypto + football)"}
+{"ts": "2026-05-24T21:17:03.880208", "msg": "Analyzing top 6 markets resolving within 24h, sorted by volume..."}
+{"ts": "2026-05-24T21:17:03.881976", "msg": "Analyzing: Will the price of Bitcoin be above $74,000 on May 25?"}
+{"ts": "2026-05-24T21:17:08.040326", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-24T21:17:08.046565", "msg": "Analyzing: Will the price of Bitcoin be above $78,000 on May 25?"}
+{"ts": "2026-05-24T21:17:12.430360", "msg": "Opened paper position #20: YES on Will the price of Bitcoin be above $78,000 on May 25?"}
+{"ts": "2026-05-24T21:17:12.434246", "msg": "Analyzing: Will Juventus FC win on 2026-05-24?"}
+{"ts": "2026-05-24T21:17:14.994856", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-24T21:17:15.001546", "msg": "Analyzing: Will Torino FC vs. Juventus FC end in a draw?"}
+{"ts": "2026-05-24T21:17:17.748311", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-24T21:17:17.754661", "msg": "Analyzing: Will PSG win the 2025\u201326 Champions League?"}
+{"ts": "2026-05-24T21:17:20.667461", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-24T21:17:20.674285", "msg": "Analyzing: Will Arsenal win the 2025\u201326 Champions League?"}
+{"ts": "2026-05-24T21:17:23.384056", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-24T21:17:23.386146", "msg": "\nCYCLE COMPLETE | Summary: {'total_positions': 20, 'open_positions': 1, 'total_pnl': 31.3, 'realized_pnl': 31.3, 'wins': 8}"}
+{"ts": "2026-05-24T21:38:49.608548", "msg": "Crypto scan: 4 candidates from 839 raw markets"}
+{"ts": "2026-05-24T21:38:49.609939", "msg": "Scanning active events..."}
+{"ts": "2026-05-24T21:38:51.225970", "msg": "Found 4 candidate markets (min vol $50K)"}
+{"ts": "2026-05-24T21:38:51.227887", "msg": "Combined: 6 total candidates (crypto + football)"}
