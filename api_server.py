@@ -356,17 +356,14 @@ def tg_status():
     }
 
 
-# ── Serve dashboard assets ────────────────────────────────────
+# ── Serve dashboard ───────────────────────────────────────────
 @app.get("/", response_class=HTMLResponse)
 def root():
-    if (WEB_BUILD / "index.html").exists():
-        return FileResponse(str(WEB_BUILD / "index.html"))
     if DASHBOARD_HTML.exists():
-        return FileResponse(str(DASHBOARD_HTML))
+        return HTMLResponse(content=DASHBOARD_HTML.read_text())
     return HTMLResponse(
         content="<html><body><h3>Polymarket Agent API</h3>"
-                "<p>Dashboard not built. Run <code>npm run build</code> in <code>web/</code>, "
-                "or place a <code>dashboard.html</code> there.</p>"
+                "<p>Dashboard not found. Place <code>dashboard.html</code> in <code>web/</code>.</p>"
                 "<p>API docs: <a href='/docs'>/docs</a></p></body></html>",
         status_code=200,
     )
