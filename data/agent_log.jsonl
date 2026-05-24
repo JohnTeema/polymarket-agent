@@ -701,3 +701,31 @@
 {"ts": "2026-05-23T22:07:38.005036", "msg": "Analyzing: Will MegaETH perform an airdrop by June 30? "}
 {"ts": "2026-05-23T22:07:41.284459", "msg": "Decision: PASS \u2014 no edge found"}
 {"ts": "2026-05-23T22:07:41.286762", "msg": "\nCYCLE COMPLETE | Summary: {'total_positions': 16, 'open_positions': 1, 'total_pnl': 720.0, 'realized_pnl': 720.0, 'wins': 8}"}
+{"ts": "2026-05-24T00:48:44.320352", "msg": "Crypto scan: 4 candidates from 723 raw markets"}
+{"ts": "2026-05-24T01:07:49.993296", "msg": "Crypto scan: 4 candidates from 712 raw markets"}
+{"ts": "2026-05-24T01:07:49.994060", "msg": "Scanning active events..."}
+{"ts": "2026-05-24T01:07:51.327967", "msg": "Found 2 candidate markets (min vol $50K)"}
+{"ts": "2026-05-24T01:07:51.330047", "msg": "Combined: 6 total candidates (crypto + football)"}
+{"ts": "2026-05-24T01:08:57.552118", "msg": "============================================================"}
+{"ts": "2026-05-24T01:08:57.552868", "msg": "AGENT CYCLE START"}
+{"ts": "2026-05-24T01:08:57.552917", "msg": "============================================================"}
+{"ts": "2026-05-24T01:08:57.558451", "msg": "Checking exit opportunities for 1 open position(s)..."}
+{"ts": "2026-05-24T01:08:58.271181", "msg": "  [EXIT CHECK] #16 YES | entry=15.0% current=10.6% | chg=-29.6%"}
+{"ts": "2026-05-24T01:08:58.271663", "msg": "[EXIT] Selling position #16 \u2014 stop loss hit (-29.6%)"}
+{"ts": "2026-05-24T01:09:03.822724", "msg": "Crypto scan: 4 candidates from 713 raw markets"}
+{"ts": "2026-05-24T01:09:03.822921", "msg": "Scanning active events..."}
+{"ts": "2026-05-24T01:09:05.123287", "msg": "Found 2 candidate markets (min vol $50K)"}
+{"ts": "2026-05-24T01:09:05.125255", "msg": "Combined: 6 total candidates (crypto + football)"}
+{"ts": "2026-05-24T01:09:05.126642", "msg": "Analyzing top 6 markets resolving within 24h, sorted by volume..."}
+{"ts": "2026-05-24T01:09:05.128065", "msg": "Analyzing: Will the price of Bitcoin be above $78,000 on May 24?"}
+{"ts": "2026-05-24T01:09:08.811647", "msg": "[SKIP] Already traded this market \u2014 Will the price of Bitcoin be above $78,000 on May 24?"}
+{"ts": "2026-05-24T01:09:08.816839", "msg": "Analyzing: Will the price of Bitcoin be above $76,000 on May 24?"}
+{"ts": "2026-05-24T01:09:11.629712", "msg": "Analyzing: Will Bitcoin reach $78,000 on May 23?"}
+{"ts": "2026-05-24T01:09:14.545312", "msg": "Opened paper position #17: YES on Will Bitcoin reach $78,000 on May 23?"}
+{"ts": "2026-05-24T01:09:14.549250", "msg": "Analyzing: Will MegaETH perform an airdrop by June 30? "}
+{"ts": "2026-05-24T01:09:17.346645", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-24T01:09:17.354051", "msg": "Analyzing: Will PSG win the 2025\u201326 Champions League?"}
+{"ts": "2026-05-24T01:09:21.749704", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-24T01:09:21.756115", "msg": "Analyzing: Will Arsenal win the 2025\u201326 Champions League?"}
+{"ts": "2026-05-24T01:09:25.042685", "msg": "Decision: PASS \u2014 no edge found"}
+{"ts": "2026-05-24T01:09:25.046083", "msg": "\nCYCLE COMPLETE | Summary: {'total_positions': 17, 'open_positions': 1, 'total_pnl': 631.3, 'realized_pnl': 631.3, 'wins': 8}"}

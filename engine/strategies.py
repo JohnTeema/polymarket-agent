@@ -4,6 +4,7 @@ Uses event tags (from Gamma API) to filter, then LLM for decision.
 """
 import json
 import logging
+import time
 import requests
 import os
 import yaml
@@ -199,10 +200,24 @@ def filter_candidate_markets(events: list[dict], min_volume: float = 50_000) -> 
     markets in crypto/sports with volume ≥ min_volume that resolve within 48 hours.
     Excludes markets with Yes price below 2% or above 98% (effectively decided).
     """
+    _CRYPTO_KW = (
+        "bitcoin", "btc", "ethereum", "eth", "solana", "sol",
+        "crypto", "xrp", "dogecoin", "doge", "price of", "up or down",
+    )
+    _FOOTBALL_KW = (
+        "premier league", "champions league", "world cup", "fifa",
+        "epl", "la liga", "serie a", "bundesliga", "ligue 1",
+        "europa league", "arsenal", "manchester", "liverpool",
+        "chelsea", "tottenham", "barcelona", "real madrid", "bayern",
+        "psg", "juventus", "inter milan", "ac milan", "man city",
+        "man utd",
+    )
+
     candidates = []
     seen_slugs = set()
     now = datetime.now(timezone.utc)
-    cutoff = now + timedelta(hours=48)
+    crypto_cutoff = now + timedelta(hours=48)
+    football_cutoff = now + timedelta(days=30)
 
     for evt in events:
         mm_type = _classify_evt(evt)
@@ -227,18 +242,17 @@ def filter_candidate_markets(events: list[dict], min_volume: float = 50_000) -> 
                     end_dt = end_dt.replace(tzinfo=timezone.utc)
             except ValueError:
                 continue
-            if end_dt > cutoff:
+            question = (m.get("question") or "").lower()
+            is_football = any(kw in question for kw in _FOOTBALL_KW)
+            is_crypto = any(kw in question for kw in _CRYPTO_KW)
+            if not is_football and not is_crypto:
+                logger.info("[FILTER] Skipping non-crypto/football market: %s", m.get("question", ""))
+                continue
+            market_cutoff = football_cutoff if is_football else crypto_cutoff
+            if end_dt > market_cutoff:
                 continue
             yes_price = fm.get("yes_price")
             if yes_price is None or yes_price < 0.02 or yes_price > 0.98:
-                continue
-            question = (m.get("question") or "").lower()
-            crypto_keywords = [
-                "bitcoin", "btc", "ethereum", "eth", "solana", "sol",
-                "crypto", "xrp", "dogecoin", "doge", "price of", "up or down",
-            ]
-            if not any(kw in question for kw in crypto_keywords):
-                logger.info("[FILTER] Skipping non-crypto market: %s", m.get("question", ""))
                 continue
             seen_slugs.add(slug)
             candidates.append((m, mm_type))
@@ -359,20 +373,31 @@ OUTPUT FORMAT — reply ONLY with this exact JSON:
         try:
             print(f"  [LLM URL] {base_url}/chat/completions")
             print(f"  [LLM AUTH] Bearer {api_key[:8]}{'*' * (len(api_key) - 8)}")
+            _llm_payload = {
+                "model": cfg.get("llm_model", "gpt-4o"),
+                "messages": [{"role": "user", "content": prompt}],
+                "temperature": 0.1,
+                "max_tokens": 350,
+            }
+            _llm_headers = {
+                "Authorization": f"Bearer {api_key}",
+                "Content-Type": "application/json",
+            }
             resp = requests.post(
                 f"{base_url}/chat/completions",
-                headers={
-                    "Authorization": f"Bearer {api_key}",
-                    "Content-Type": "application/json",
-                },
-                json={
-                    "model": cfg.get("llm_model", "gpt-4o"),
-                    "messages": [{"role": "user", "content": prompt}],
-                    "temperature": 0.1,
-                    "max_tokens": 350,
-                },
+                headers=_llm_headers,
+                json=_llm_payload,
                 timeout=30,
             )
+            if resp.status_code == 429:
+                print("  [LLM] 429 rate limit — waiting 10s and retrying once...")
+                time.sleep(10)
+                resp = requests.post(
+                    f"{base_url}/chat/completions",
+                    headers=_llm_headers,
+                    json=_llm_payload,
+                    timeout=30,
+                )
             resp.raise_for_status()
             raw = resp.json()["choices"][0]["message"]["content"]
             raw = raw.strip().removeprefix("```json").removeprefix("```").removesuffix("```").strip()

@@ -165,6 +165,21 @@ def _wrap_as_crypto_events(markets: list[dict]) -> list[dict]:
     return [{"tags": [{"slug": "crypto"}], "markets": [m]} for m in markets]
 
 
+def _merge_candidates(*candidate_lists: list) -> list:
+    """Merge (market, mm_type) lists, deduplicating by market ID."""
+    seen: set = set()
+    merged: list = []
+    for clist in candidate_lists:
+        for m, mm_type in clist:
+            mid = m.get("id")
+            if mid and mid not in seen:
+                seen.add(mid)
+                merged.append((m, mm_type))
+            elif not mid:
+                merged.append((m, mm_type))
+    return merged
+
+
 def get_all_candidates() -> list:
     """Gather and filter crypto + sports candidates from active events."""
     log("Scanning active events...")
@@ -176,17 +191,18 @@ def get_all_candidates() -> list:
 
 def run_scan_only(verbose: bool = False):
     """Just scan and return candidates — no trades."""
+    crypto_candidates = []
     try:
         print("[brain] trying daily crypto scan...")
         flat = _combine_flat_markets(get_daily_crypto_markets(), get_crypto_daily_markets(), get_crypto_updown_markets())
-        candidates = filter_candidate_markets(_wrap_as_crypto_events(flat), min_volume=50_000)
-        log(f"Crypto scan: {len(candidates)} candidates from {len(flat)} raw markets")
+        crypto_candidates = filter_candidate_markets(_wrap_as_crypto_events(flat), min_volume=50_000)
+        log(f"Crypto scan: {len(crypto_candidates)} candidates from {len(flat)} raw markets")
     except Exception as e:
-        log(f"Crypto scan failed ({e}), falling back to get_active_events")
-        candidates = []
+        log(f"Crypto scan failed ({e}), continuing with active events only")
 
-    if not candidates:
-        candidates = get_all_candidates()
+    event_candidates = get_all_candidates()
+    candidates = _merge_candidates(crypto_candidates, event_candidates)
+    log(f"Combined: {len(candidates)} total candidates (crypto + football)")
 
     for m, mm_type in candidates:
         fm = format_market(m)
@@ -355,17 +371,18 @@ def run_full_cycle(scan_only: bool = False):
         log("Scan-only mode — no trades executed.")
         return
 
+    crypto_candidates = []
     try:
         print("[brain] trying daily crypto scan...")
         flat = _combine_flat_markets(get_daily_crypto_markets(), get_crypto_daily_markets(), get_crypto_updown_markets())
-        candidates = filter_candidate_markets(_wrap_as_crypto_events(flat), min_volume=50_000)
-        log(f"Crypto scan: {len(candidates)} candidates from {len(flat)} raw markets")
+        crypto_candidates = filter_candidate_markets(_wrap_as_crypto_events(flat), min_volume=50_000)
+        log(f"Crypto scan: {len(crypto_candidates)} candidates from {len(flat)} raw markets")
     except Exception as e:
-        log(f"Crypto scan failed ({e}), falling back to get_active_events")
-        candidates = []
+        log(f"Crypto scan failed ({e}), continuing with active events only")
 
-    if not candidates:
-        candidates = get_all_candidates()
+    event_candidates = get_all_candidates()
+    candidates = _merge_candidates(crypto_candidates, event_candidates)
+    log(f"Combined: {len(candidates)} total candidates (crypto + football)")
 
     if not candidates:
         log("No candidate markets found.")
