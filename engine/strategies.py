@@ -360,16 +360,15 @@ TASK:
 OUTPUT FORMAT — reply ONLY with this exact JSON:
 {{"action": "trade_yes"|"trade_no"|"pass",
   "confidence": 0.0-1.0,
-  "rationale": "2–3 sentences citing specific knowledge about the teams or matchup",
+  "rationale": "1–2 sentences max, be concise",
   "risk": "low"|"medium"|"high",
-  "edge": 0.0-1.0}}"""
+  "edge": 0.0-1.0}}
+
+Respond with ONLY a JSON object on a single line. No newlines inside the JSON. Keep rationale under 15 words. Example: {{"action":"pass","confidence":0.5,"rationale":"No edge found","risk":"low","edge":0.0}}"""
 
     # --- LLM path ---
     base_url = cfg.get("openai_base_url", "https://api.openai.com/v1").rstrip("/")
-    is_openai    = api_key.startswith("sk-")
-    is_freemodel = api_key.startswith("fe_oa_")
-    is_groq      = api_key.startswith("gsk_")
-    if api_key and (is_openai or is_freemodel or is_groq):
+    if api_key:
         try:
             print(f"  [LLM URL] {base_url}/chat/completions")
             print(f"  [LLM AUTH] Bearer {api_key[:8]}{'*' * (len(api_key) - 8)}")
@@ -377,7 +376,8 @@ OUTPUT FORMAT — reply ONLY with this exact JSON:
                 "model": cfg.get("llm_model", "gpt-4o"),
                 "messages": [{"role": "user", "content": prompt}],
                 "temperature": 0.1,
-                "max_tokens": 350,
+                "max_tokens": 1000,
+                "response_format": {"type": "json_object"},
             }
             _llm_headers = {
                 "Authorization": f"Bearer {api_key}",
@@ -400,6 +400,7 @@ OUTPUT FORMAT — reply ONLY with this exact JSON:
                 )
             resp.raise_for_status()
             raw = resp.json()["choices"][0]["message"]["content"]
+            print(f"  [LLM RAW] {raw[:500]}")
             raw = raw.strip().removeprefix("```json").removeprefix("```").removesuffix("```").strip()
             d = json.loads(raw)
         except Exception as e:
